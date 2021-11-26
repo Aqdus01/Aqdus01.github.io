@@ -21,19 +21,35 @@ I obtained my B.S. in Electrical and Electronics Engineering with <b> Magna Cum 
 
 ## Honors and Awards
 
-During this period I won the following Awards, Scholarships and Internships.
+Sep 2020 [Applied in collaboration] International Networking Innovation Fund, DK ( 30K Euro)
 
-[Silver Medal, Bahria University Islamabad, Pakistan.](/files/cert.PNG)
+Nov. 2018 Research Stay Abroad Grant (25,000 DKK)
 
-[Brain Korea (BK21) Scholarship](https://bk21four.nrf.re.kr/)
+Feb. 2018 Otto Monsted Grant for Conference (10,000 DKK)
 
-[Bahria University Advanced Merit Scholarship](https://www.bahria.edu.pk/buic/ees/scholarships/)
+2018 -2020 Board Member PhD Network Association Aalborg University PAU
 
-[CERN, Switzerland "Conseil Européen pour la Recherche Nucléaire" Summer Program (2018](https://home.cern/summer-student-programme)
+Jan. 2016 Global Leadership Certificate (GLC), for conducting seminars, events and talks
 
-[Türkiye Belediyeler Birliği – Çankaya/Ankara, Turkey, LocalInternational Internship Program](https://www.cankaya.bel.tr/pages/129/Turkiye-Belediyeler-Birligi--Union-of-Municipalities-of-Turkey-TBB/)
+August 2015 Travel grant for industries (Air bus, Volkswagon) visit in Germany
 
-[National Institute of Electronics – Islamabad, Pakistan, Internee](http://www.nie.gov.pk/)
+June 2015 Research assistance ship for 2 months in Coventry University (£ 2,000)
+
+April 2015 2nd Prize in NEC Birmingham Engineering and Design Competition
+
+March 2015 Cultural Mundi Representative
+
+Jan. 2015 Senior Course Representative Electrical & Electronics Engineering
+
+Jan. 2015 Tuition fee wavier (£ 500)
+
+2007 - 2011 2nd merit position overall in university with CGPA 3.875 / 4.00 at (FUUAST Islamabad)
+
+2009-2011 Head of CR of Electrical Engineering Department (FUUAST Islamabad )
+
+2010-2011 Ambassador of University (FUUAST Islamabad )
+
+2010-2011 Won the “Talent award” twice by “Study Aid Foundation for Excellence (SAFE)
 
 
 
