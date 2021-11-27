@@ -8,15 +8,15 @@ redirect_from:
   - /about.html
 ---
 
- I am working as a Research Assistant at the [University of Cambridge](https://www.cam.ac.uk/), [McDonald Institute for Archaeological Research](https://www.arch.cam.ac.uk/institutes-and-facilities-overview/mcdonald-institute-archaeological-research) on faical emotions recognitions in visual arts.
+ I am a PostDoc Researcher in [Affective Intelligence and Robotics Laboratory (AFAR)](https://cambridge-afar.github.io/) at the [Department of Computer Science and Technology](https://www.cst.cam.ac.uk/),  [University of Cambridge, UK](https://www.cam.ac.uk/). Currently I am working on [WorkingAge](https://www.workingage.eu/) project for affective analysis of workforce to promote healthy habits in their working environment and daily living activities and to improve their working and living conditions . 
 
-I completed my Master's Degree in Electronics and Information Engineering from [Jeonbuk National University (JBNU), Jeonju, Republic of Korea,](https://www.jbnu.ac.kr/kor/) (2019-2021) with research focused on fundamental Deep Learning and applications of Compuer Vision to Healthcare and Precision Agriculture.
+I have received my  my Master's Degree in Electronics and Information Engineering from [Coventry University, UK,](https://www.coventry.ac.uk/) in 2016 and PhD in Computer Science with Visual Analaysis & Perception (VAP) Laboratory at [Aalborg University, Denmark](https://www.en.aau.dk/) with research focused on Facial Emotion Recognition for Citizens with Traumatic Brain Injury for Therapeutic Robot Interaction.
 
-I obtained my B.S. in Electrical and Electronics Engineering with <b> Magna Cum Laude </b> from [Bahria University Islamabad, (BUIC) Pakistan](https://www.bahria.edu.pk/) (2014-2018). 
+
 
 ## Research Interests
-* My primary research interest is to solve vision based problems like Segmentation, Detection, Depth Estimation, and Classification. 
-* I also investigate topics related to Deep learning on Mobile Devices, Bioinformatics, Optical Flow and Signal Processing.
+* My primary research interest is in affective computing and human behavior analysis in working environmetal conditions.
+* I also investigate topics related to human-Robot interaction, Neuro inpired AI, Deep learning and Computer Vision. 
 
 
 ## Honors and Awards
@@ -29,7 +29,7 @@ Feb. 2018 Otto Monsted Grant for Conference (10,000 DKK)
 
 2018 -2020 Board Member PhD Network Association Aalborg University PAU
 
-Jan. 2016 Global Leadership Certificate (GLC), for conducting seminars, events and talks
+Jan. 2016 Global Leadership Certificate (GLC), for conducting seminars, events and talks under Global Leadership Program (GLP) at the Coventry University
 
 August 2015 Travel grant for industries (Air bus, Volkswagon) visit in Germany
 
@@ -55,7 +55,8 @@ Jan. 2015 Tuition fee wavier (£ 500)
 
 
 ## Funding
-My research work is funded by National Research Foundation of Korea (NRF), U.S. Air Force Office of Scientific Research, and Agricultural Science and Technology Development Cooperation of Korea.
+My research work is supported by the the European Union's Horizon 2020 Research and Innovation programme under grant agreement No. 826232.
+
 
 
 ## Updates
