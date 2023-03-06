@@ -8,9 +8,9 @@ redirect_from:
   - /about.html
 ---
 
- I am a PostDoc Researcher in [Affective Intelligence and Robotics Laboratory (AFAR)](https://cambridge-afar.github.io/) at the [Department of Computer Science and Technology](https://www.cst.cam.ac.uk/),  [University of Cambridge, UK](https://www.cam.ac.uk/). Currently I am working on [WorkingAge](https://www.workingage.eu/) project for affective analysis of workforce to promote healthy habits in their working environment and daily living activities and to improve their working and living conditions . 
+I am a PostDoc Researcher in [Affective Intelligence and Robotics Laboratory (AFAR)](https://cambridge-afar.github.io/) at the [Department of Computer Science and Technology](https://www.cst.cam.ac.uk/),  [University of Cambridge, UK](https://www.cam.ac.uk/). Currently I am working on [WorkingAge](https://www.workingage.eu/) project for affective analysis of workforce to promote healthy habits in their working environment and daily living activities and to improve their working and living conditions . 
 
-I have received my  my Master's Degree in Electronics and Information Engineering from [Coventry University, UK,](https://www.coventry.ac.uk/) in 2016 and PhD in Computer Science with Visual Analaysis & Perception (VAP) and Human-Robot Interaction (HRI) Labs at [Aalborg University, Denmark](https://www.en.aau.dk/) with research focused on Facial Emotion Recognition for Citizens with Traumatic Brain Injury for Therapeutic Robot Interaction.
+I have received my PhD in Computer Science with Visual Analaysis & Perception (VAP) and Human-Robot Interaction (HRI) Labs at [Aalborg University, Denmark](https://www.en.aau.dk/) with research focused on Facial Emotion Recognition for Citizens with Traumatic Brain Injury for Therapeutic Robot Interaction. I have received Master's Degree in Electrical & Electronics Engineering from [Coventry University, UK,](https://www.coventry.ac.uk/) in 2016. 
 
 
 
