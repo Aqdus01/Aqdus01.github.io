@@ -1,0 +1,653 @@
+/* ============================================================
+   NORDIC TWILIGHT — Magenta & Ember Edition
+   For: academicpages / Minimal Mistakes Jekyll theme
+   Colors:
+     Deep Magenta  #3d0030  (hero, footer backgrounds)
+     Dark Violet   #300047  (gradient mid-tone)
+     Orange Ember  #FF7A00  (primary accent)
+     Soft Ember    #FFB347  (hover / light accent)
+     Blush Mist    #F8EFF4  (alternating section bg)
+     Deep Rose     #7A1856  (sidebar highlights, borders)
+   ============================================================ */
+
+/* ── 1. CSS VARIABLES ──────────────────────────────────────── */
+:root {
+    --mg-deep:        #3d0030;   /* darkest — hero & footer */
+    --mg-mid:         #300047;   /* gradient transition */
+    --mg-rose:        #7A1856;   /* mid-tone — borders, hover */
+    --mg-blush:       #F8EFF4;   /* lightest — alt section bg */
+    --mg-blush-dark:  #EDD8E6;   /* slightly deeper blush */
+  
+    --or-primary:     #FF7A00;   /* main orange accent */
+    --or-light:       #FFB347;   /* hover / soft orange */
+    --or-pale:        #FFF3E0;   /* very light orange tint */
+  
+    --text-on-dark:   #F5EBF2;   /* readable on dark magenta bg */
+    --text-muted-dark:#C9A8C2;   /* secondary text on dark bg */
+    --border-dark:    #5C1A49;   /* subtle border on dark surfaces */
+  }
+  
+  
+  /* ── 2. MASTHEAD / TOP NAVIGATION ──────────────────────────── */
+  
+  /* Nuclear override — force dark background on every masthead element */
+  .masthead,
+  .masthead__inner-wrap,
+  .masthead__menu,
+  nav#site-nav,
+  .greedy-nav {
+    background: #3d0030 !important;
+    background-color: #3d0030 !important;
+    background-image: none !important;
+  }
+  
+  /* Now apply the gradient only to the outer wrapper */
+  .masthead {
+    background: linear-gradient(135deg, #3d0030 0%, #5a0048 40%, #300047 100%) !important;
+    border-bottom: 4px solid #FF7A00 !important;
+    box-shadow: 0 3px 16px rgba(61, 0, 48, 0.6) !important;
+  }
+  
+  /* Site title — large white text, very high contrast */
+  a.site-title,
+  .masthead a.site-title,
+  .masthead__inner-wrap a.site-title,
+  .greedy-nav a.site-title {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    letter-spacing: -0.01em;
+    text-shadow: none;
+    background: transparent !important;
+  }
+  a.site-title:hover {
+    color: #FFB347 !important;
+  }
+  
+  /* All nav links — bright white so they pop on dark background */
+  .greedy-nav a,
+  .greedy-nav ul.visible-links a,
+  ul.visible-links li.masthead__menu-item a,
+  .masthead__menu-item a,
+  #site-nav a {
+    color: #ffffff !important;
+    font-size: 0.88rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    padding: 0 8px !important;
+    transition: color 0.2s ease, border-bottom 0.2s ease !important;
+    background: transparent !important;
+    text-shadow: none !important;
+  }
+  
+  /* Hover — orange accent */
+  .greedy-nav a:hover,
+  ul.visible-links li.masthead__menu-item a:hover,
+  .masthead__menu-item a:hover,
+  #site-nav a:hover {
+    color: #FF7A00 !important;
+    border-bottom: 2px solid #FF7A00 !important;
+  }
+  
+  /* Active nav item */
+  .greedy-nav a.active,
+  ul.visible-links li.masthead__menu-item a.active,
+  .masthead__menu-item a.active {
+    color: #FFB347 !important;
+    border-bottom: 3px solid #FF7A00 !important;
+  }
+  
+  /* Hamburger icon (mobile) */
+  .greedy-nav button.hidden,
+  .greedy-nav button {
+    background: transparent !important;
+    color: #ffffff !important;
+  }
+  .navicon,
+  .navicon::before,
+  .navicon::after {
+    background: #ffffff !important;
+  }
+  
+  /* Hidden/overflow dropdown */
+  .hidden-links,
+  ul.hidden-links {
+    background: #2a0022 !important;
+    border: 1px solid #FF7A00 !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
+  }
+  .hidden-links li a,
+  ul.hidden-links li a {
+    color: #ffffff !important;
+    text-transform: uppercase !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    padding: 8px 16px !important;
+    display: block;
+  }
+  .hidden-links li a:hover,
+  ul.hidden-links li a:hover {
+    background: rgba(255, 122, 0, 0.15) !important;
+    color: #FF7A00 !important;
+    border-bottom: none !important;
+  }
+  
+  
+  /* ── 3. AUTHOR SIDEBAR ─────────────────────────────────────── */
+  .sidebar.sticky {
+    background: transparent;
+  }
+  
+  /* Avatar ring */
+  .author__avatar img {
+    border: 4px solid var(--or-primary) !important;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--mg-rose);
+    transition: box-shadow 0.3s ease;
+  }
+  .author__avatar img:hover {
+    box-shadow: 0 0 0 4px var(--or-primary);
+  }
+  
+  /* Name */
+  .author__name {
+    color: var(--mg-deep) !important;
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+    letter-spacing: -0.01em;
+  }
+  
+  /* Bio */
+  .author__bio {
+    color: #4a3040 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.55;
+  }
+  
+  /* Location, employer, etc. */
+  .author__urls-wrapper .author__urls li {
+    font-size: 0.82rem;
+    border-bottom: 1px solid var(--mg-blush-dark);
+    padding: 4px 0;
+  }
+  .author__urls-wrapper .author__urls a {
+    color: var(--mg-rose) !important;
+    transition: color 0.2s;
+  }
+  .author__urls-wrapper .author__urls a:hover {
+    color: var(--or-primary) !important;
+  }
+  
+  /* Toggle button (mobile) */
+  .author__urls-wrapper button {
+    background: var(--mg-deep) !important;
+    color: var(--text-on-dark) !important;
+    border: 1px solid var(--or-primary) !important;
+    border-radius: 4px;
+  }
+  
+  
+  /* ── 4. PAGE CONTENT — HEADINGS ────────────────────────────── */
+  
+  /* H2 — section headings with left-border accent */
+  .page__content h2 {
+    color: var(--mg-deep) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    border-left: 5px solid var(--or-primary);
+    border-bottom: none !important;
+    padding: 4px 0 4px 12px !important;
+    margin-top: 2rem;
+    background: linear-gradient(90deg, var(--or-pale) 0%, transparent 70%);
+    border-radius: 0 4px 4px 0;
+  }
+  
+  /* H3 — sub-section headings */
+  .page__content h3 {
+    color: var(--mg-rose) !important;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--mg-blush-dark);
+    padding-bottom: 4px;
+  }
+  
+  /* H4 */
+  .page__content h4 {
+    color: #5a1040 !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  
+  
+  /* ── 5. ALTERNATING SECTION BACKGROUNDS ────────────────────── */
+  
+  /* Wrap each major section in a div or hr-delimited block.
+     This targets the --- dividers you have in your about.md */
+  .page__content hr {
+    border: none;
+    border-top: 1px solid var(--mg-blush-dark);
+    margin: 2rem 0;
+  }
+  
+  /* Table styling (for the awards table in your about.md) */
+  .page__content table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.88rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(61, 0, 48, 0.08);
+  }
+  
+  .page__content table thead th {
+    background: linear-gradient(135deg, var(--mg-deep), var(--mg-mid));
+    color: var(--text-on-dark) !important;
+    font-weight: 600;
+    padding: 10px 14px;
+    letter-spacing: 0.03em;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+  }
+  
+  .page__content table tbody tr:nth-child(odd) td {
+    background: #fff;
+  }
+  .page__content table tbody tr:nth-child(even) td {
+    background: var(--mg-blush);
+  }
+  .page__content table tbody tr:hover td {
+    background: var(--or-pale);
+  }
+  .page__content table td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--mg-blush-dark);
+    color: #2a1020;
+    vertical-align: top;
+  }
+  
+  
+  /* ── 6. LINKS ──────────────────────────────────────────────── */
+  a {
+    color: var(--mg-rose) !important;
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: var(--or-primary) !important;
+    text-decoration: none;
+  }
+  
+  /* Links inside page content — a bit brighter */
+  .page__content a {
+    color: #8B1A6B !important;
+    border-bottom: 1px solid transparent;
+  }
+  .page__content a:hover {
+    color: var(--or-primary) !important;
+    border-bottom-color: var(--or-primary);
+  }
+  
+  
+  /* ── 7. BUTTONS ────────────────────────────────────────────── */
+  .btn {
+    background-color: var(--or-primary) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn:hover {
+    background-color: #e06800 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3);
+  }
+  .btn--inverse {
+    background-color: transparent !important;
+    color: var(--or-primary) !important;
+    border: 2px solid var(--or-primary) !important;
+  }
+  .btn--inverse:hover {
+    background-color: var(--or-primary) !important;
+    color: #fff !important;
+  }
+  
+  
+  /* ── 8. TAXONOMY TAGS / RESEARCH INTEREST PILLS ───────────── */
+  .page__taxonomy-item a,
+  .archive__item .page__taxonomy-item a {
+    background: var(--mg-blush) !important;
+    color: var(--mg-deep) !important;
+    border: 1px solid var(--mg-blush-dark) !important;
+    border-radius: 20px !important;
+    padding: 3px 12px !important;
+    font-size: 0.78rem !important;
+    transition: all 0.2s;
+  }
+  .page__taxonomy-item a:hover {
+    background: var(--or-primary) !important;
+    color: #fff !important;
+    border-color: var(--or-primary) !important;
+  }
+  
+  
+  /* ── 9. ARCHIVE ITEMS (Publications, Projects, etc.) ───────── */
+  .archive__item-title a {
+    color: var(--mg-deep) !important;
+    font-weight: 600;
+  }
+  .archive__item-title a:hover {
+    color: var(--or-primary) !important;
+  }
+  .archive__item-excerpt {
+    color: #4a3040;
+    font-size: 0.88rem;
+  }
+  
+  
+  /* ── 10. TABLE OF CONTENTS (TOC) ───────────────────────────── */
+  .toc .nav__title {
+    background: linear-gradient(135deg, var(--mg-deep), var(--mg-mid)) !important;
+    color: var(--text-on-dark) !important;
+    border-radius: 4px 4px 0 0;
+  }
+  .toc .active a {
+    color: var(--or-primary) !important;
+    border-left: 3px solid var(--or-primary);
+    padding-left: 8px;
+  }
+  .toc a {
+    color: var(--mg-rose) !important;
+  }
+  .toc a:hover {
+    color: var(--or-primary) !important;
+  }
+  
+  
+  /* ── 11. NOTICE BOXES ──────────────────────────────────────── */
+  .notice--info {
+    background: var(--mg-blush) !important;
+    border-left: 4px solid var(--mg-rose) !important;
+  }
+  .notice--warning {
+    background: var(--or-pale) !important;
+    border-left: 4px solid var(--or-primary) !important;
+  }
+  
+  
+  /* ── 12. PAGINATION ────────────────────────────────────────── */
+  .pagination .current {
+    background: var(--mg-deep) !important;
+    color: #fff !important;
+    border-color: var(--mg-deep) !important;
+  }
+  .pagination a:hover {
+    background: var(--or-pale) !important;
+    color: var(--or-primary) !important;
+    border-color: var(--or-primary) !important;
+  }
+  
+  
+  /* ── 13. FOOTER ────────────────────────────────────────────── */
+  .page__footer {
+    background: linear-gradient(135deg, var(--mg-deep) 0%, #280020 100%) !important;
+    border-top: 3px solid var(--or-primary);
+    color: var(--text-muted-dark) !important;
+  }
+  
+  .page__footer a {
+    color: var(--or-light) !important;
+  }
+  .page__footer a:hover {
+    color: #fff !important;
+  }
+  
+  .page__footer-follow .social-icons .fas,
+  .page__footer-follow .social-icons .fab,
+  .page__footer-follow .social-icons .far {
+    color: var(--or-primary) !important;
+  }
+  
+  .page__footer-copyright {
+    color: var(--text-muted-dark) !important;
+    font-size: 0.78rem;
+  }
+  
+  
+  /* ── 14. HERO / MASTHEAD OVERLAY ───────────────────────────── */
+  .page__hero--overlay {
+    background: linear-gradient(135deg, var(--mg-deep) 0%, var(--mg-mid) 100%) !important;
+  }
+  .page__hero--overlay .page__title,
+  .page__hero--overlay .page__meta,
+  .page__hero--overlay .page__lead {
+    color: var(--text-on-dark) !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+  
+  
+  /* ── 15. SEARCH ────────────────────────────────────────────── */
+  .search-content .search-input {
+    border-bottom: 2px solid var(--mg-rose) !important;
+  }
+  .search-content .search-input:focus {
+    border-bottom-color: var(--or-primary) !important;
+  }
+  
+  
+  /* ── 16. SIDEBAR NAV (inner pages) ────────────────────────── */
+  .nav__list .nav__items a {
+    color: #4a3040 !important;
+  }
+  .nav__list .nav__items a:hover,
+  .nav__list .nav__items a.active {
+    color: var(--or-primary) !important;
+    border-left: 3px solid var(--or-primary);
+    padding-left: 6px;
+  }
+  
+  
+  /* ── 17. BLOCKQUOTE ────────────────────────────────────────── */
+  blockquote {
+    border-left: 4px solid var(--or-primary) !important;
+    background: var(--mg-blush) !important;
+    color: #3a1030 !important;
+    border-radius: 0 4px 4px 0;
+    padding: 0.75rem 1rem;
+  }
+  
+  
+  /* ── 18. CODE BLOCKS ───────────────────────────────────────── */
+  .highlight,
+  pre.highlight {
+    border-left: 3px solid var(--mg-rose);
+    border-radius: 4px;
+  }
+  code {
+    background: var(--mg-blush) !important;
+    color: var(--mg-deep) !important;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.88em;
+  }
+  
+  
+  /* ── 19. PUBLICATION / TALK META ───────────────────────────── */
+  .page__meta {
+    color: var(--mg-rose) !important;
+    font-size: 0.8rem;
+  }
+  .page__meta-sep {
+    color: var(--or-primary) !important;
+  }
+  
+  
+  /* ── 20. RESPONSIVE — MOBILE TWEAKS ───────────────────────── */
+  @media (max-width: 768px) {
+    .masthead {
+      background: var(--mg-deep) !important;
+    }
+    .page__content h2 {
+      font-size: 1.1rem;
+    }
+  }
+  
+  
+  /* ── 21. CURRENT RESEARCH SECTION ─────────────────────────── */
+  
+  /* Project header banner */
+  .research-project-header {
+    background: linear-gradient(135deg, #3d0030 0%, #5a0048 50%, #300047 100%);
+    border-left: 5px solid #FF7A00;
+    border-radius: 0 8px 8px 0;
+    padding: 1.4rem 1.6rem;
+    margin: 1.5rem 0 1.8rem;
+  }
+  
+  .research-funder {
+    display: inline-block;
+    background: rgba(255, 122, 0, 0.18);
+    color: #FFB347;
+    border: 1px solid rgba(255, 122, 0, 0.45);
+    border-radius: 20px;
+    padding: 3px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  
+  .research-project-title {
+    color: #ffffff !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+    margin: 0.3rem 0 0.6rem !important;
+    font-style: italic;
+  }
+  
+  .research-project-lead {
+    color: #e8cce0 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+  }
+  
+  /* Card grid */
+  .research-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 0 0 2rem;
+  }
+  
+  /* Individual card */
+  .research-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: #ffffff;
+    border: 1px solid #EDD8E6;
+    border-top: 3px solid #FF7A00;
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-top-color 0.2s ease;
+  }
+  
+  .research-card:hover {
+    box-shadow: 0 6px 20px rgba(61, 0, 48, 0.12);
+    transform: translateY(-2px);
+    border-top-color: #3d0030;
+  }
+  
+  /* Alternating top border: every other card uses magenta */
+  .research-card:nth-child(even) {
+    border-top-color: #7A1856;
+  }
+  .research-card:nth-child(even):hover {
+    border-top-color: #3d0030;
+  }
+  
+  /* Icon */
+  .research-card__icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  /* Card body */
+  .research-card__body {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  /* Card title */
+  .research-card__title {
+    color: #3d0030 !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.45rem !important;
+    line-height: 1.3 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+  }
+  
+  /* Card description */
+  .research-card__desc {
+    color: #4a3040 !important;
+    font-size: 0.83rem !important;
+    line-height: 1.6 !important;
+    margin: 0 0 0.7rem !important;
+  }
+  
+  /* Tag row */
+  .research-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  /* Base tag */
+  .rtag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+  
+  /* Orange variant */
+  .rtag--orange {
+    background: #FFF3E0;
+    color: #C45500;
+    border: 1px solid #FFB347;
+  }
+  
+  /* Magenta variant */
+  .rtag--magenta {
+    background: #F8EFF4;
+    color: #6B1248;
+    border: 1px solid #EDD8E6;
+  }
+  
+  /* Responsive — single column on small screens */
+  @media (max-width: 600px) {
+    .research-cards {
+      grid-template-columns: 1fr;
+    }
+    .research-project-header {
+      padding: 1rem 1.1rem;
+    }
+  }
