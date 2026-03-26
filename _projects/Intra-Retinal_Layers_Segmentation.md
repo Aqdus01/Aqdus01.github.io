@@ -1,5 +1,5 @@
 ---
-title: "Intra-Retinal Layers Segmentation"
+title: "Facial Emotional Recognition for People with Traumatic Brain Injury"
 collection: projects
 excerpt: "Deep Learning Based Automated Extraction of Intra-Retinal Layers for Analyzing Retinal Anomalies "
 imageurl: '/images/projects/p3_1.PNG'
@@ -22,4 +22,4 @@ pre-trained model) has been used through Transfer Learning technique. AlexNet wa
 
 ## Files
 
-- [Bachelor Thesis](/files/BS_Thesis.pdf)
+- [PhD Thesis](/files/BS_Thesis.pdf)

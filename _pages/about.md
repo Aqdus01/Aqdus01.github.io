@@ -19,9 +19,17 @@ I received my PhD in Computer Science from [Aalborg University, Denmark](https:/
 ## Current Research
 
 <div class="research-project-header">
+ 
+  <h2 class="research-project-title">"Reading the Reader" (RtR)</h2>
+  <p class="research-project-lead">This project aims to improve the reading abilities of visually impaired people by using advanced AI methods (deep learning) to analyse the reader’s individual reading patterns and challenges. The project involves developing a model that enables us to rapidly decode a person’s reading patterns and simultaneously set, for example, the font size, contrast or spacing between letters on a mobile phone, a tablet or other screen, so that the material is optimally adapted to the person’s reading pattern, thereby providing the optimal reading experience and improving reading speed. Data will be recorded from eye trackers and other biometrical sensors and the patterns learned by the AI will be used to dynamically adjust the font size, height, width, type, spacing, etc. to help the reader optimize the reading experience and outcome (e.g., reading speed). The research is being carried out in collaboration with the Royal Danish Academy – Architecture, Design, Conservation and includes computer scientists, psychologists, experts in reading patterns and ophthalmologists.</p>
+  <span class="research-funder">Novo Nordisk Foundation–Funded Project</span>
+</div>
+
+<div class="research-project-header">
   <span class="research-funder">Novo Nordisk Foundation–Funded Project</span>
   <h2 class="research-project-title">"Reading the Reader" (RtR)</h2>
-  <p class="research-project-lead">This project aims to improve the reading abilities of visually impaired people by using advanced AI methods (deep learning) to analyse the reader’s individual reading patterns and challenges. The project involves developing a model that enables us to rapidly decode a person’s reading patterns and simultaneously set, for example, the font size, contrast or spacing between letters on a mobile phone, a tablet or other screen, so that the material is optimally adapted to the person’s reading pattern, thereby providing the optimal reading experience and improving reading speed. Data will be recorded from eye trackers and other biometrical sensors and the patterns learned by the AI will be used to dynamically adjust the font size, height, width, type, spacing, etc. to help the reader optimize the reading experience and outcome (e.g., reading speed). </p>
+  <p class="research-project-lead">This project aims to improve the reading abilities of visually impaired people by using advanced AI methods (deep learning) to analyse the reader’s individual reading patterns and challenges. The project involves developing a model that enables us to rapidly decode a person’s reading patterns and simultaneously set, for example, the font size, contrast or spacing between letters on a mobile phone, a tablet or other screen, so that the material is optimally adapted to the person’s reading pattern, thereby providing the optimal reading experience and improving reading speed. Data will be recorded from eye trackers and other biometrical sensors and the patterns learned by the AI will be used to dynamically adjust the font size, height, width, type, spacing, etc. to help the reader optimize the reading experience and outcome (e.g., reading speed). The research is being carried out in collaboration with the Royal Danish Academy – Architecture, Design, Conservation and includes computer scientists, psychologists, experts in reading patterns and ophthalmologists.</p>
+
 </div>
 
 <div class="research-cards">
@@ -116,8 +124,8 @@ I received my PhD in Computer Science from [Aalborg University, Denmark](https:/
 
 ## Funding
 
-This research has received funding from the **European Union's Horizon 2020** Research and Innovation Programme under grant agreement No. **826232**.
-
+The [WorkingAge](https://www.workingage.eu/) research project received funding from the **European Union's Horizon 2020** Research and Innovation Programme under grant agreement No. **826232**.\\
+The [Reading the Reader](https://datascience.novonordiskfonden.dk/projects/reading-the-reader/) research project recieved the funding from the **Novo Nordisk Foundation** under grant agreement **NF22OC0076877**. 
 ---
 
 *This website is built with the [Academic Pages](https://github.com/academicpages/academicpages.github.io) Jekyll template and hosted on GitHub Pages.*
