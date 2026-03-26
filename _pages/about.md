@@ -25,13 +25,6 @@ I received my PhD in Computer Science from [Aalborg University, Denmark](https:/
   <span class="research-funder">Novo Nordisk Foundation–Funded Project</span>
 </div>
 
-<div class="research-project-header">
-  <span class="research-funder">Novo Nordisk Foundation–Funded Project</span>
-  <h2 class="research-project-title">"Reading the Reader" (RtR)</h2>
-  <p class="research-project-lead">This project aims to improve the reading abilities of visually impaired people by using advanced AI methods (deep learning) to analyse the reader’s individual reading patterns and challenges. The project involves developing a model that enables us to rapidly decode a person’s reading patterns and simultaneously set, for example, the font size, contrast or spacing between letters on a mobile phone, a tablet or other screen, so that the material is optimally adapted to the person’s reading pattern, thereby providing the optimal reading experience and improving reading speed. Data will be recorded from eye trackers and other biometrical sensors and the patterns learned by the AI will be used to dynamically adjust the font size, height, width, type, spacing, etc. to help the reader optimize the reading experience and outcome (e.g., reading speed). The research is being carried out in collaboration with the Royal Danish Academy – Architecture, Design, Conservation and includes computer scientists, psychologists, experts in reading patterns and ophthalmologists.</p>
-
-</div>
-
 <div class="research-cards">
 
   <div class="research-card">
@@ -110,16 +103,16 @@ I received my PhD in Computer Science from [Aalborg University, Denmark](https:/
 | 2018–2020 | Board Member, PhD Network Association, Aalborg University (PAU) |
 | Jan 2016 | Global Leadership Certificate (GLC), Coventry University — awarded for organising seminars, events, and talks under the Global Leadership Programme (GLP) |
 | Aug 2015 | Travel Grant for Industry Visits (Airbus & Volkswagen, Germany) |
-| Jun 2015 | Research Assistantship, Coventry University — £2,000 |
-| Apr 2015 | 2nd Prize, NEC Birmingham Engineering & Design Competition |
-| Mar 2015 | Cultural Mundi Representative |
-| Jan 2015 | Senior Course Representative, Electrical & Electronics Engineering |
-| Jan 2015 | Tuition Fee Waiver — £500 |
+| Jun 2015 | Research Assistantship, Coventry University, UK |
+| Apr 2015 | 2nd Prize, NEC Birmingham Engineering & Design Competition, UK |
+| Mar 2015 | Cultural Mundi Representative,  Coventry University, UK |
+| Jan 2015 | Senior Course Representative, B. E Electrical & Electronics Engineering, Pak |
 | 2010–2011 | "Talent Award" (×2), Study Aid Foundation for Excellence (SAFE) |
+{% comment %}
 | 2010–2011 | University Ambassador, FUUAST Islamabad |
 | 2009–2011 | Head of Course Representatives, Electrical Engineering Department, FUUAST Islamabad |
-| 2007–2011 | 2nd Merit Position (University-wide), CGPA 3.875/4.00, FUUAST Islamabad |
-
+| 2007–2011 | 2nd Merit Position (University-wide), CGPA 3.875/4.00, **Magne Cum Laude**, FUUAST Islamabad |
+{% endcomment %}
 ---
 
 ## Funding
