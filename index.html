@@ -104,6 +104,17 @@
       background: rgba(147,197,253,.08);
       border-color: rgba(147,197,253,.2);
     }
+    /* Keep dark sections dark (awards, contact) — don't inherit blue-deep as light */
+    [data-theme="dark"] .section--dark {
+      background: #0C1A30;
+    }
+    /* Make email and links readable on dark section background */
+    [data-theme="dark"] .contact-value a {
+      color: #7DD3FC;
+    }
+    [data-theme="dark"] .contact-value a:hover {
+      color: #fff;
+    }
 
     /* ── Base ───────────────────────────────────────────────── */
     body {
