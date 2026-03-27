@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Chaudhary Muhammad Aqdus Ilyas"
+title                    : "Muhammad Aqdus Ilyas"
 title_separator          : "-"
 name                     : &name "Chaudhary Muhammad Aqdus Ilyas"
-description              : &description "M.S. in Electrical & Computer Engineering, UCLA, Expected 2021; B.S in Physics, UCLA, 2019; Ethnically Indian, born & raised in Kuwait"
+description              : &description "Postdoctoral Researcher at DTU Compute, Technical University of Denmark. Research at the intersection of eye-tracking, cognitive neuroscience, affective computing, and human-robot interaction."
 url                      : https://aqdus01.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Aqdus01/Aqdus01.github.io"
@@ -62,7 +62,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Open Graph/Twitter default site image
+og_image                 : "Aqdus.jpg"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -80,41 +80,19 @@ analytics:
 
 # Site Author
 author:
-  name             : "Muhammad Aqdus"
+  name             : "Muhammad Aqdus Ilyas"
   avatar           : "Aqdus.jpg"
-  bio              : "Research Associate"
+  bio              : "Postdoctoral Researcher · DTU Compute, Technical University of Denmark"
   location         : "Copenhagen, Denmark"
-  employer         :
-  pubmed           : 
+  employer         : "Technical University of Denmark (DTU)"
   googlescholar    : "https://scholar.google.com/citations?user=5yQCd7cAAAAJ&hl=en"
   email            : "engr.aqdus@gmail.com"
-  researchgate     :  
-  uri              :
-  bitbucket        :
-  codepen          :
-  dribbble         :
-  flickr           :
-  facebook         :
-  foursquare       :
+  researchgate     : "https://www.researchgate.net/profile/Chaudhary-Aqdus"
+  uri              : "https://aqdus01.github.io"
   github           : "Aqdus01"
-  google_plus      :
-  keybase          :
-  instagram        : 
-  impactstory      : 
-  lastfm           :
-  linkedin         : 
   orcid            : "https://orcid.org/0000-0002-0766-3531"
-  pinterest        :
-  soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
-  steam            :
-  tumblr           :
-  twitter          : 
-  vine             :
-  weibo            :
-  xing             :
-  youtube          :
-  wikipedia        :
+  linkedin         :
+  twitter          :
 
 
 # Reading Files
