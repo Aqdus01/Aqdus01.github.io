@@ -1,11 +1,8 @@
 ---
-permalink: /
+permalink: /about/
 title: "About Me"
 excerpt: "About Me"
 author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
 ---
 
 I am a Postdoctoral Researcher at the [Department of Applied Mathematics and Computer Science](https://www.compute.dtu.dk/) at the Technical University of Denmark (DTU). I am currently working on the [Reading the Reader](https://datascience.novonordiskfonden.dk/projects/reading-the-reader/) project, funded by the Novo Nordisk Foundation, in collaboration with Associate Professor [Per Bækgaard](https://people.compute.dtu.dk/pgba/). My research lies at the intersection of Cognitive Neuroscience, UX/UI Design, Human–Machine Interaction (HMI), Human–Robot Interaction (HRI), and Artificial Intelligence (AI).
@@ -23,7 +20,6 @@ I received my PhD in Computer Science from [Aalborg University, Denmark](https:/
   <h2 class="research-project-title">"Reading the Reader" (RtR)</h2>
   <p class="research-project-lead">This project aims to improve the reading abilities of visually impaired people by using advanced AI methods (deep learning) to analyse the reader’s individual reading patterns and challenges. The project involves developing a model that enables us to rapidly decode a person’s reading patterns and simultaneously set, for example, the font size, contrast or spacing between letters on a mobile phone, a tablet or other screen, so that the material is optimally adapted to the person’s reading pattern, thereby providing the optimal reading experience and improving reading speed. Data will be recorded from eye trackers and other biometrical sensors and the patterns learned by the AI will be used to dynamically adjust the font size, height, width, type, spacing, etc. to help the reader optimize the reading experience and outcome (e.g., reading speed). The research is being carried out in collaboration with the Royal Danish Academy – Architecture, Design, Conservation and includes computer scientists, psychologists, experts in reading patterns and ophthalmologists.</p>
   <span class="research-funder">Novo Nordisk Foundation–Funded Project</span>
-</div>
 
 <div class="research-cards">
 
@@ -40,8 +36,9 @@ I received my PhD in Computer Science from [Aalborg University, Denmark](https:/
       </div>
     </div>
   </div>
+</div>
 
-  <div class="research-card">
+ <div class="research-card">
     <div class="research-card__icon">🧠</div>
     <div class="research-card__body">
       <h4 class="research-card__title">TVA Parameter Estimation</h4>
@@ -54,6 +51,8 @@ I received my PhD in Computer Science from [Aalborg University, Denmark](https:/
       </div>
     </div>
   </div>
+ </div> 
+ 
 
   <div class="research-card">
     <div class="research-card__icon">🔤</div>

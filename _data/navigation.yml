@@ -9,8 +9,8 @@ main:
   # - title: "Talks"
   #  url: /talks/    
 
-  - title: "Teaching"
-    url: /teaching/    
+  - title: "Teaching & Supervision"
+    url: /teaching-supervision/    
         
   - title: "Blog Posts"
     url: /year-archive/
@@ -23,3 +23,6 @@ main:
     
   # - title: "Guide"
   #   url: /markdown/
+  
+  - title: "Media"
+    url: /media/

@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Aqdus Ilyas | Postdoctoral Researcher · DTU Compute</title>
+  <meta name="description" content="Postdoctoral Researcher at DTU Compute working on eye-tracking, cognitive neuroscience, TVA modelling, and affective computing." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Design Tokens ──────────────────────────────────────── */
+    :root {
+      --ink:          #111827;
+      --ink-mid:      #374151;
+      --ink-light:    #6B7280;
+      --blue-deep:    #1E3A5F;
+      --blue-mid:     #2B6CB0;
+      --blue-bright:  #4299E1;
+      --gold:         #B7791F;
+      --gold-light:   #F6E05E;
+      --cream:        #FAFAF8;
+      --surface:      #F3F4F6;
+      --border:       #E5E7EB;
+      --white:        #FFFFFF;
+
+      --ff-display: 'Cormorant Garamond', Georgia, serif;
+      --ff-body:    'IBM Plex Sans', system-ui, sans-serif;
+      --ff-mono:    'IBM Plex Mono', monospace;
+
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+      --nav-h: 68px;
+    }
+
+    /* ── Base ───────────────────────────────────────────────── */
+    body {
+      font-family: var(--ff-body);
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* Subtle grain texture */
+    body::after {
+      content:'';
+      position:fixed; inset:0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity:0.025;
+      pointer-events:none;
+      z-index:9999;
+      animation: grain 10s steps(8) infinite;
+    }
+    @keyframes grain {
+      0%,100%{ transform:translate(0,0); }
+      12%{ transform:translate(-4%,-8%); }
+      25%{ transform:translate(6%,4%); }
+      37%{ transform:translate(-8%,12%); }
+      50%{ transform:translate(4%,-6%); }
+      62%{ transform:translate(-6%,8%); }
+      75%{ transform:translate(10%,-2%); }
+      87%{ transform:translate(-2%,10%); }
+    }
+
+    /* ── Navigation ─────────────────────────────────────────── */
+    .nav {
+      position: fixed; top:0; left:0; right:0;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      border-bottom: 1px solid transparent;
+      z-index: 1000;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .nav.scrolled {
+      border-color: var(--border);
+      box-shadow: 0 2px 20px rgba(17,24,39,.06);
+    }
+    .nav__inner {
+      max-width:1320px; margin:0 auto; padding:0 2.5rem;
+      width:100%; display:flex; align-items:center; justify-content:space-between;
+    }
+    .nav__logo {
+      font-family: var(--ff-display);
+      font-size: 1.35rem; font-weight:600;
+      color: var(--blue-deep); text-decoration:none;
+      letter-spacing:-.02em;
+    }
+    .nav__logo span { color: var(--gold); }
+    .nav__links { display:flex; gap:2rem; list-style:none; }
+    .nav__links a {
+      font-size:.875rem; font-weight:400; letter-spacing:.04em;
+      color: var(--ink-mid); text-decoration:none;
+      position:relative; padding-bottom:2px;
+      transition: color .2s;
+    }
+    .nav__links a::after {
+      content:''; position:absolute; bottom:0; left:0;
+      width:0; height:1.5px;
+      background: var(--blue-bright);
+      transition: width .35s var(--ease-out);
+    }
+    .nav__links a:hover { color: var(--blue-deep); }
+    .nav__links a:hover::after { width:100%; }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .hero {
+      min-height:100vh;
+      display:flex; align-items:center;
+      padding-top: var(--nav-h);
+      position:relative; overflow:hidden;
+      background: linear-gradient(150deg, var(--cream) 0%, #EBF4FF 100%);
+    }
+
+    /* Decorative orbs */
+    .hero::before, .hero::after {
+      content:''; position:absolute; border-radius:50%;
+      pointer-events:none;
+    }
+    .hero::before {
+      width:700px; height:700px;
+      top:-20%; right:-10%;
+      background: radial-gradient(circle, rgba(66,153,225,.12) 0%, transparent 70%);
+      animation: drift 25s ease-in-out infinite;
+    }
+    .hero::after {
+      width:400px; height:400px;
+      bottom:0; left:-5%;
+      background: radial-gradient(circle, rgba(183,121,31,.08) 0%, transparent 70%);
+      animation: drift 30s ease-in-out infinite reverse;
+    }
+    @keyframes drift {
+      0%,100%{ transform:translate(0,0) scale(1); }
+      50%{ transform:translate(-40px,60px) scale(1.05); }
+    }
+
+    .hero__inner {
+      max-width:1320px; margin:0 auto; padding:5rem 2.5rem 6rem;
+      display:grid; grid-template-columns:1fr auto;
+      gap:6rem; align-items:center;
+      position:relative; z-index:1;
+    }
+
+    /* Text column */
+    .hero__tag {
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.35rem .9rem;
+      background: rgba(30,58,95,.07);
+      border: 1px solid rgba(30,58,95,.15);
+      border-radius:999px;
+      font-family: var(--ff-mono);
+      font-size:.78rem; font-weight:500;
+      color: var(--blue-deep); letter-spacing:.06em;
+      margin-bottom:1.75rem;
+      opacity:0; transform:translateY(16px);
+      animation: fadeUp .9s var(--ease-out) .1s forwards;
+    }
+    .hero__tag-dot {
+      width:7px; height:7px; border-radius:50%;
+      background: #22C55E;
+      box-shadow:0 0 0 3px rgba(34,197,94,.25);
+      animation: pulse-dot 2.5s ease infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100%{ box-shadow:0 0 0 3px rgba(34,197,94,.25); }
+      50%{ box-shadow:0 0 0 6px rgba(34,197,94,.12); }
+    }
+
+    .hero__name {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight:600; line-height:1.08;
+      letter-spacing:-.035em;
+      color: var(--blue-deep);
+      margin-bottom:.6rem;
+      opacity:0; transform:translateY(20px);
+      animation: fadeUp 1s var(--ease-out) .25s forwards;
+    }
+
+    .hero__role {
+      font-family: var(--ff-body);
+      font-size:1.25rem; font-weight:400;
+      color: var(--blue-bright);
+      margin-bottom:1.75rem;
+      opacity:0; transform:translateY(20px);
+      animation: fadeUp 1s var(--ease-out) .4s forwards;
+    }
+
+    .hero__bio {
+      font-size:1.05rem; line-height:1.85;
+      color: var(--ink-mid); max-width:620px;
+      margin-bottom:1.5rem;
+      opacity:0; transform:translateY(20px);
+      animation: fadeUp 1s var(--ease-out) .55s forwards;
+    }
+
+    .hero__bio2 {
+      font-size:.95rem; line-height:1.8;
+      color: var(--ink-light); max-width:580px;
+      margin-bottom:2.5rem;
+      border-left:3px solid var(--blue-bright);
+      padding-left:1rem;
+      opacity:0; transform:translateY(20px);
+      animation: fadeUp 1s var(--ease-out) .65s forwards;
+    }
+
+    .hero__actions {
+      display:flex; flex-wrap:wrap; gap:1rem;
+      opacity:0; transform:translateY(20px);
+      animation: fadeUp 1s var(--ease-out) .8s forwards;
+    }
+
+    .btn {
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.8rem 1.75rem;
+      font-family: var(--ff-body); font-size:.9rem; font-weight:500;
+      border-radius:6px; cursor:pointer; border:none;
+      text-decoration:none; letter-spacing:.02em;
+      transition: all .35s var(--ease-out);
+    }
+    .btn-primary {
+      background: var(--blue-deep); color:#fff;
+      box-shadow:0 4px 18px rgba(30,58,95,.22);
+    }
+    .btn-primary:hover {
+      background: var(--blue-mid);
+      box-shadow:0 8px 28px rgba(43,108,176,.3);
+      transform:translateY(-2px);
+    }
+    .btn-outline {
+      background:transparent; color: var(--blue-deep);
+      border:1.5px solid var(--blue-deep);
+    }
+    .btn-outline:hover {
+      background: var(--blue-deep); color:#fff;
+      transform:translateY(-2px);
+    }
+    .btn-ghost {
+      background:transparent; color: var(--ink-mid);
+      border:1.5px solid var(--border);
+    }
+    .btn-ghost:hover {
+      border-color: var(--blue-bright); color: var(--blue-deep);
+      transform:translateY(-2px);
+    }
+
+    /* Profile image column */
+    .hero__photo-wrap {
+      width:320px; flex-shrink:0;
+      opacity:0; transform:translateX(40px);
+      animation: fadeLeft 1.1s var(--ease-out) 1s forwards;
+    }
+    @keyframes fadeLeft {
+      to{ opacity:1; transform:translateX(0); }
+    }
+    .hero__photo-frame {
+      position:relative; border-radius:12px; overflow:hidden;
+      aspect-ratio:3/4;
+      box-shadow:
+        0 0 0 1px rgba(30,58,95,.1),
+        0 25px 60px rgba(30,58,95,.18),
+        0 8px 20px rgba(30,58,95,.1);
+    }
+    .hero__photo-frame::before {
+      content:'';
+      position:absolute; inset:0; z-index:2;
+      background: linear-gradient(
+        to bottom,
+        transparent 60%,
+        rgba(17,24,39,.55) 100%
+      );
+    }
+    .hero__photo-frame img {
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+    .hero__photo-badge {
+      position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:3;
+      background: rgba(17,24,39,.75);
+      backdrop-filter:blur(8px);
+      border-radius:8px;
+      padding:.6rem 1rem;
+      display:flex; align-items:center; gap:.75rem;
+    }
+    .hero__photo-badge-dot {
+      width:8px; height:8px; border-radius:50%;
+      background:#4ADE80; flex-shrink:0;
+      box-shadow:0 0 0 3px rgba(74,222,128,.25);
+    }
+    .hero__photo-badge-text {
+      font-size:.78rem; font-weight:500; color:#E5E7EB;
+      font-family: var(--ff-mono);
+    }
+
+    /* Decorative corner lines on photo */
+    .hero__photo-deco {
+      position:absolute;
+      border:2px solid rgba(66,153,225,.35);
+      border-radius:14px;
+      top:-10px; left:-10px; right:-10px; bottom:-10px;
+      pointer-events:none;
+    }
+
+    @keyframes fadeUp {
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    /* ── Shared Section Styles ──────────────────────────────── */
+    .section {
+      padding:6rem 0;
+    }
+    .section--alt {
+      background: var(--surface);
+    }
+    .section--dark {
+      background: var(--blue-deep);
+      color: #fff;
+    }
+    .container {
+      max-width:1320px; margin:0 auto; padding:0 2.5rem;
+    }
+
+    .section-label {
+      display:inline-flex; align-items:center; gap:.6rem;
+      font-family: var(--ff-mono);
+      font-size:.75rem; font-weight:500;
+      letter-spacing:.1em; text-transform:uppercase;
+      color: var(--blue-bright);
+      margin-bottom:1.25rem;
+    }
+    .section-label::before {
+      content:''; display:block;
+      width:28px; height:1.5px;
+      background: var(--blue-bright);
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      font-weight:600; line-height:1.15;
+      letter-spacing:-.025em;
+      color: var(--blue-deep);
+      margin-bottom:1rem;
+    }
+    .section--dark .section-title { color:#fff; }
+
+    .section-sub {
+      font-size:1.05rem; color: var(--ink-mid);
+      max-width:680px; line-height:1.8;
+    }
+    .section--dark .section-sub { color:rgba(255,255,255,.75); }
+
+    .section-header {
+      margin-bottom:3.5rem;
+    }
+
+    /* Scroll reveal */
+    .sr {
+      opacity:0; transform:translateY(24px);
+      transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
+    }
+    .sr.visible { opacity:1; transform:translateY(0); }
+
+    /* ── Research Section ───────────────────────────────────── */
+    .research-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap:1.75rem;
+    }
+
+    .rcard {
+      background: var(--white);
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:2rem;
+      transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out), border-color .3s;
+      position:relative; overflow:hidden;
+    }
+    .rcard::before {
+      content:''; position:absolute;
+      top:0; left:0; right:0; height:3px;
+      background: linear-gradient(90deg, var(--blue-mid), var(--blue-bright));
+      opacity:0; transition: opacity .35s;
+    }
+    .rcard:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(17,24,39,.1); border-color:var(--blue-bright); }
+    .rcard:hover::before { opacity:1; }
+
+    .rcard__icon {
+      width:52px; height:52px; border-radius:10px;
+      background: linear-gradient(135deg, rgba(66,153,225,.15), rgba(43,108,176,.1));
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.4rem; margin-bottom:1.25rem;
+    }
+    .rcard__title {
+      font-family: var(--ff-display);
+      font-size:1.45rem; font-weight:600;
+      color: var(--blue-deep); margin-bottom:.6rem; line-height:1.3;
+    }
+    .rcard__text {
+      font-size:.925rem; color: var(--ink-mid);
+      line-height:1.75; margin-bottom:1.25rem;
+    }
+    .rcard__tags { display:flex; flex-wrap:wrap; gap:.5rem; }
+    .tag {
+      padding:.28rem .75rem;
+      font-family: var(--ff-mono);
+      font-size:.72rem; font-weight:500;
+      border-radius:4px; letter-spacing:.04em;
+    }
+    .tag--blue { background:rgba(66,153,225,.12); color:var(--blue-mid); }
+    .tag--gold { background:rgba(183,121,31,.1); color:var(--gold); }
+    .tag--slate { background:rgba(100,116,139,.1); color:#475569; }
+
+    /* ── Publications ───────────────────────────────────────── */
+    .pub-list { display:flex; flex-direction:column; gap:0; }
+    .pub-item {
+      padding:2rem 0;
+      border-bottom:1px solid var(--border);
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:1.5rem 2rem;
+      align-items:start;
+    }
+    .pub-item:last-child { border-bottom:none; }
+
+    .pub-year {
+      font-family: var(--ff-mono);
+      font-size:.8rem; font-weight:500;
+      color: var(--blue-bright);
+      background: rgba(66,153,225,.1);
+      border-radius:4px;
+      padding:.3rem .6rem;
+      letter-spacing:.06em;
+      white-space:nowrap;
+      margin-top:.2rem;
+    }
+
+    .pub-content {}
+    .pub-title {
+      font-family: var(--ff-display);
+      font-size:1.35rem; font-weight:600;
+      line-height:1.4; color: var(--blue-deep);
+      margin-bottom:.6rem;
+    }
+    .pub-title a {
+      color:inherit; text-decoration:none;
+      background-image: linear-gradient(var(--blue-bright), var(--blue-bright));
+      background-size:0% 1.5px;
+      background-position:0 100%;
+      background-repeat:no-repeat;
+      transition: background-size .35s var(--ease-out);
+    }
+    .pub-title a:hover { background-size:100% 1.5px; }
+
+    .pub-authors {
+      font-size:.9rem; color: var(--ink-light);
+      margin-bottom:.4rem;
+    }
+    .pub-authors strong { color: var(--blue-deep); font-weight:600; }
+
+    .pub-venue {
+      font-size:.9rem; color: var(--ink-mid);
+      font-style:italic; margin-bottom:.75rem;
+    }
+    .pub-venue span { color: var(--gold); font-style:normal; font-weight:500; }
+
+    .pub-abstract {
+      font-size:.875rem; color: var(--ink-light);
+      line-height:1.7; margin-bottom:.85rem;
+    }
+
+    .pub-links { display:flex; flex-wrap:wrap; gap:.6rem; }
+    .pub-link {
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.3rem .8rem;
+      font-family: var(--ff-mono);
+      font-size:.72rem; font-weight:500;
+      border-radius:4px; text-decoration:none;
+      border:1px solid var(--border);
+      color: var(--ink-mid);
+      transition: all .25s;
+    }
+    .pub-link:hover {
+      background: var(--blue-deep); color:#fff; border-color:var(--blue-deep);
+    }
+
+    /* ── Experience ─────────────────────────────────────────── */
+    .exp-timeline { position:relative; padding-left:1.5rem; }
+    .exp-timeline::before {
+      content:''; position:absolute;
+      left:0; top:8px; bottom:8px; width:2px;
+      background: linear-gradient(to bottom, var(--blue-bright), transparent);
+    }
+    .exp-item {
+      position:relative; padding:0 0 2.5rem 2rem;
+    }
+    .exp-item::before {
+      content:''; position:absolute;
+      left:-1.5rem; top:8px;
+      width:10px; height:10px; border-radius:50%;
+      background: var(--blue-bright);
+      box-shadow:0 0 0 3px rgba(66,153,225,.2);
+    }
+    .exp-period {
+      font-family: var(--ff-mono);
+      font-size:.75rem; color: var(--blue-bright);
+      letter-spacing:.06em; margin-bottom:.4rem;
+    }
+    .exp-role {
+      font-family: var(--ff-display);
+      font-size:1.4rem; font-weight:600;
+      color: var(--blue-deep); margin-bottom:.2rem;
+    }
+    .exp-place {
+      font-size:.95rem; color: var(--ink-mid);
+      margin-bottom:.6rem; font-weight:500;
+    }
+    .exp-place a {
+      color: var(--blue-bright); text-decoration:none;
+    }
+    .exp-place a:hover { text-decoration:underline; }
+    .exp-desc {
+      font-size:.93rem; color: var(--ink-mid);
+      line-height:1.8; max-width:680px;
+    }
+
+    /* ── Interests ──────────────────────────────────────────── */
+    .interests-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+      gap:1.25rem;
+    }
+    .interest-item {
+      display:flex; align-items:start; gap:1rem;
+      padding:1.25rem 1.5rem;
+      background: var(--white);
+      border:1px solid var(--border);
+      border-radius:8px;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .interest-item:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(17,24,39,.07); }
+    .interest-icon { font-size:1.4rem; flex-shrink:0; margin-top:.1rem; }
+    .interest-text h4 {
+      font-family: var(--ff-display);
+      font-size:1.15rem; font-weight:600;
+      color: var(--blue-deep); margin-bottom:.25rem;
+    }
+    .interest-text p { font-size:.875rem; color: var(--ink-light); line-height:1.6; }
+
+    /* ── Awards ─────────────────────────────────────────────── */
+    .awards-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
+      gap:1.25rem;
+    }
+    .award-item {
+      display:flex; align-items:start; gap:1.25rem;
+      padding:1.5rem;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:8px;
+      transition: background .3s;
+    }
+    .award-item:hover { background: rgba(255,255,255,.12); }
+    .award-year {
+      font-family: var(--ff-mono);
+      font-size:.78rem; color: var(--gold-light);
+      background: rgba(246,224,94,.1);
+      border-radius:4px; padding:.3rem .6rem;
+      white-space:nowrap; flex-shrink:0;
+      letter-spacing:.04em;
+    }
+    .award-text { font-size:.9rem; color:rgba(255,255,255,.85); line-height:1.6; }
+    .award-amount {
+      font-weight:600; color: var(--gold-light);
+    }
+
+    /* ── Funding ────────────────────────────────────────────── */
+    .funding-cards {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(420px, 1fr));
+      gap:1.5rem;
+    }
+    .fcard {
+      background: var(--white);
+      border:1px solid var(--border); border-radius:10px;
+      padding:1.75rem 2rem;
+      border-left:4px solid var(--blue-bright);
+    }
+    .fcard__funder {
+      font-family: var(--ff-mono);
+      font-size:.75rem; font-weight:500;
+      color: var(--blue-bright); letter-spacing:.06em;
+      margin-bottom:.5rem;
+    }
+    .fcard__project {
+      font-family: var(--ff-display);
+      font-size:1.3rem; font-weight:600;
+      color: var(--blue-deep); margin-bottom:.5rem;
+    }
+    .fcard__grant {
+      font-size:.82rem; font-family: var(--ff-mono);
+      color: var(--ink-light); margin-bottom:.75rem;
+    }
+    .fcard__desc { font-size:.92rem; color: var(--ink-mid); line-height:1.7; }
+
+    /* ── Contact ────────────────────────────────────────────── */
+    .contact-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:4rem;
+      align-items:start;
+    }
+    .contact-item {
+      display:flex; gap:1.25rem; margin-bottom:2rem; align-items:start;
+    }
+    .contact-icon-wrap {
+      width:48px; height:48px; flex-shrink:0;
+      background: rgba(66,153,225,.15);
+      border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem;
+    }
+    .contact-label {
+      font-family: var(--ff-display);
+      font-size:1.15rem; font-weight:600;
+      color:#fff; margin-bottom:.3rem;
+    }
+    .contact-value {
+      font-size:.9rem; color:rgba(255,255,255,.75); line-height:1.6;
+    }
+    .contact-value a {
+      color: var(--blue-bright); text-decoration:none;
+      transition: color .2s;
+    }
+    .contact-value a:hover { color:#fff; }
+
+    .profiles-list {
+      display:flex; flex-direction:column; gap:.75rem;
+    }
+    .profile-link {
+      display:flex; align-items:center; gap:1rem;
+      padding:.9rem 1.25rem;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:8px;
+      text-decoration:none; color:#fff;
+      transition: background .25s, border-color .25s, transform .25s;
+    }
+    .profile-link:hover {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(66,153,225,.5);
+      transform:translateX(4px);
+    }
+    .profile-link-icon { font-size:1.2rem; flex-shrink:0; }
+    .profile-link-text { font-size:.9rem; }
+    .profile-link-text strong { display:block; font-weight:600; }
+    .profile-link-text span { color:rgba(255,255,255,.6); font-size:.8rem; }
+    .profile-link-arrow { margin-left:auto; color:rgba(255,255,255,.4); }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      background: #0D1B2E;
+      color:rgba(255,255,255,.5);
+      padding:2rem 2.5rem;
+      text-align:center;
+      font-size:.85rem;
+    }
+    footer a { color:rgba(255,255,255,.6); text-decoration:none; }
+    footer a:hover { color:#fff; }
+
+    /* ── Blog Cards ─────────────────────────────────────────── */
+    .blog-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
+      gap:1.75rem;
+    }
+    .bcard {
+      background: var(--white);
+      border:1px solid var(--border);
+      border-radius:10px;
+      overflow:hidden;
+      display:flex; flex-direction:column;
+      transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out), border-color .3s;
+    }
+    .bcard:hover {
+      transform:translateY(-6px);
+      box-shadow:0 20px 50px rgba(17,24,39,.1);
+      border-color:var(--blue-bright);
+    }
+    .bcard__top {
+      height:4px;
+      background: linear-gradient(90deg, var(--blue-mid), var(--blue-bright));
+    }
+    .bcard__body { padding:1.75rem; flex:1; display:flex; flex-direction:column; }
+    .bcard__meta {
+      display:flex; align-items:center; gap:.75rem;
+      margin-bottom:1rem; flex-wrap:wrap;
+    }
+    .bcard__date {
+      font-family: var(--ff-mono);
+      font-size:.72rem; font-weight:500; letter-spacing:.06em;
+      color: var(--blue-bright);
+      background: rgba(66,153,225,.1);
+      border-radius:4px; padding:.25rem .6rem;
+    }
+    .bcard__venue {
+      font-size:.78rem; color: var(--ink-light);
+      font-style:italic;
+    }
+    .bcard__title {
+      font-family: var(--ff-display);
+      font-size:1.3rem; font-weight:600; line-height:1.35;
+      color: var(--blue-deep); margin-bottom:.75rem;
+    }
+    .bcard__excerpt {
+      font-size:.875rem; color: var(--ink-mid);
+      line-height:1.75; flex:1; margin-bottom:1.25rem;
+    }
+    .bcard__footer {
+      display:flex; align-items:center; justify-content:space-between;
+      padding-top:1rem; border-top:1px solid var(--border);
+      flex-wrap:wrap; gap:.5rem;
+    }
+    .bcard__tags { display:flex; gap:.4rem; flex-wrap:wrap; }
+    .bcard__link {
+      display:inline-flex; align-items:center; gap:.35rem;
+      font-family: var(--ff-mono); font-size:.72rem; font-weight:500;
+      color: var(--blue-bright); text-decoration:none;
+      transition: color .2s, gap .2s;
+      white-space:nowrap;
+    }
+    .bcard__link:hover { color: var(--blue-deep); gap:.6rem; }
+
+    /* ── Utilities ──────────────────────────────────────────── */
+    .divider {
+      height:1px; background:var(--border);
+      margin:0; border:none;
+    }
+    .text-gold { color: var(--gold); }
+    .mt-2 { margin-top:.5rem; }
+    .flex-gap { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width:1024px) {
+      .hero__inner { grid-template-columns:1fr; gap:3rem; }
+      .hero__photo-wrap { width:260px; margin:0 auto; }
+      .contact-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .funding-cards { grid-template-columns:1fr; }
+    }
+    @media (max-width:768px) {
+      :root { --nav-h:60px; }
+      .nav__inner { padding:0 1.25rem; }
+      .nav__links { gap:1.25rem; }
+      .hero__inner { padding:3rem 1.25rem 4rem; }
+      .container { padding:0 1.25rem; }
+      .section { padding:4rem 0; }
+      .research-grid { grid-template-columns:1fr; }
+      .awards-grid { grid-template-columns:1fr; }
+      .hero__photo-wrap { width:220px; }
+      .nav__links { display:none; }
+      .pub-item { grid-template-columns:1fr; gap:.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════ NAV ══════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#">M. Aqdus <span>Ilyas</span></a>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════ HERO ═════════════════════ -->
+  <section class="hero" id="about">
+    <div class="hero__inner">
+
+      <!-- Text -->
+      <div class="hero__text">
+        <div class="hero__tag">
+          <span class="hero__tag-dot"></span>
+          Postdoctoral Researcher · DTU Compute, Denmark
+        </div>
+
+        <h1 class="hero__name">Chaudhary Muhammad<br>Aqdus Ilyas</h1>
+
+        <p class="hero__role">Eye-Tracking · Cognitive Neuroscience · Affective Computing · HRI</p>
+
+        <p class="hero__bio">
+          I am a Postdoctoral Researcher at the
+          <a href="https://www.compute.dtu.dk/" style="color:var(--blue-bright);text-decoration:none;">Department of Applied Mathematics and Computer Science</a>,
+          Technical University of Denmark (DTU), working on the
+          <a href="https://datascience.novonordiskfonden.dk/projects/reading-the-reader/" style="color:var(--blue-bright);text-decoration:none;"><em>Reading the Reader</em></a>
+          project funded by the Novo Nordisk Foundation, in collaboration with
+          <a href="https://people.compute.dtu.dk/pgba/" style="color:var(--blue-bright);text-decoration:none;">Assoc. Prof. Per Bækgaard</a>.
+        </p>
+
+        <p class="hero__bio2">
+          My research sits at the intersection of Cognitive Neuroscience, UX/UI Design,
+          Human–Machine Interaction (HMI), Human–Robot Interaction (HRI), and Artificial Intelligence — using
+          eye-tracking and psychophysics to understand how people read, perceive, and interact with information.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#research" class="btn btn-primary">Explore Research</a>
+          <a href="#publications" class="btn btn-outline">Publications</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="hero__photo-wrap">
+        <div style="position:relative;">
+          <div class="hero__photo-frame">
+            <img src="images/Aqdus.jpg" alt="Muhammad Aqdus Ilyas" />
+            <div class="hero__photo-badge">
+              <span class="hero__photo-badge-dot"></span>
+              <span class="hero__photo-badge-text">Copenhagen, Denmark</span>
+            </div>
+          </div>
+          <div class="hero__photo-deco"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ RESEARCH ═════════════════ -->
+  <section class="section" id="research">
+    <div class="container">
+      <div class="section-header sr">
+        <div class="section-label">Current Work</div>
+        <h2 class="section-title">Research Focus</h2>
+        <p class="section-sub">
+          Within the <strong>Reading the Reader (RtR)</strong> project, I develop
+          computational methods that combine eye-tracking, pupillometry, and Bayesian
+          modelling to understand and adapt to individual reading patterns.
+        </p>
+      </div>
+
+      <div class="research-grid">
+
+        <div class="rcard sr">
+          <div class="rcard__icon">👁️</div>
+          <h3 class="rcard__title">Eye-Tracking & Pupillometry</h3>
+          <p class="rcard__text">
+            Using Tobii eye-trackers to capture gaze patterns, fixation dynamics, and
+            Task-Evoked Pupillary Responses (TEPR). Full preprocessing pipeline including
+            blink detection, Hampel filtering, Gaussian smoothing, and baseline correction.
+          </p>
+          <div class="rcard__tags">
+            <span class="tag tag--blue">TEPR</span>
+            <span class="tag tag--blue">Tobii</span>
+            <span class="tag tag--gold">Pupil Dilation</span>
+            <span class="tag tag--slate">GCA</span>
+          </div>
+        </div>
+
+        <div class="rcard sr">
+          <div class="rcard__icon">🧠</div>
+          <h3 class="rcard__title">TVA Parameter Estimation</h3>
+          <p class="rcard__text">
+            Applying Bundesen's Theory of Visual Attention (TVA) to model visual cognition
+            during reading. Per-participant estimation of K, C, and t₀ across font conditions
+            using Bayesian MCMC in PyMC.
+          </p>
+          <div class="rcard__tags">
+            <span class="tag tag--blue">TVA</span>
+            <span class="tag tag--blue">PyMC</span>
+            <span class="tag tag--gold">MCMC</span>
+            <span class="tag tag--slate">Bayesian</span>
+          </div>
+        </div>
+
+        <div class="rcard sr">
+          <div class="rcard__icon">🔤</div>
+          <h3 class="rcard__title">Font Legibility & Psychophysics</h3>
+          <p class="rcard__text">
+            Investigating how font families (Cambria, Roboto, Garamond) and styles
+            (regular vs. italic) modulate reading performance through word superiority
+            effects and Bayesian posterior difference distributions.
+          </p>
+          <div class="rcard__tags">
+            <span class="tag tag--blue">Typography</span>
+            <span class="tag tag--gold">Legibility</span>
+            <span class="tag tag--slate">Psychophysics</span>
+          </div>
+        </div>
+
+        <div class="rcard sr">
+          <div class="rcard__icon">📈</div>
+          <h3 class="rcard__title">Bayesian Hierarchical Models</h3>
+          <p class="rcard__text">
+            Growth Curve Analysis (GCA) using orthogonal polynomials for temporal pupil data,
+            hierarchical models for Peak Pupil Dilation curves. LOO-CV diagnostics and
+            model identifiability across font and reading conditions.
+          </p>
+          <div class="rcard__tags">
+            <span class="tag tag--blue">PyMC</span>
+            <span class="tag tag--blue">LOO-CV</span>
+            <span class="tag tag--gold">Hierarchical</span>
+            <span class="tag tag--slate">Posterior</span>
+          </div>
+        </div>
+
+        <div class="rcard sr">
+          <div class="rcard__icon">🤖</div>
+          <h3 class="rcard__title">Affective Computing & HRI</h3>
+          <p class="rcard__text">
+            Facial emotion recognition for socially intelligent robotic systems,
+            particularly for citizens with Traumatic Brain Injury (TBI).
+            Previously contributed to the EU Horizon 2020 WorkingAge project at
+            Cambridge AFAR Lab.
+          </p>
+          <div class="rcard__tags">
+            <span class="tag tag--blue">FER</span>
+            <span class="tag tag--gold">HRI</span>
+            <span class="tag tag--slate">Affective AI</span>
+          </div>
+        </div>
+
+        <div class="rcard sr">
+          <div class="rcard__icon">🌐</div>
+          <h3 class="rcard__title">NLP & Gaze-Based ML</h3>
+          <p class="rcard__text">
+            Applying BERT-based classifiers to gaze data for native language identification
+            from reading patterns (NLIR). Monte Carlo simulation for robust small-sample
+            evaluation on the MECO-L2 multilingual corpus.
+          </p>
+          <div class="rcard__tags">
+            <span class="tag tag--blue">BERT</span>
+            <span class="tag tag--gold">NLIR</span>
+            <span class="tag tag--slate">MECO-L2</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ PUBLICATIONS ════════════ -->
+  <section class="section section--alt" id="publications">
+    <div class="container">
+      <div class="section-header sr">
+        <div class="section-label">Scholarship</div>
+        <h2 class="section-title">Selected Publications</h2>
+        <p class="section-sub">
+          Peer-reviewed contributions to eye-tracking, cognitive science, and human-computer interaction.
+          <a href="https://scholar.google.com/citations?user=5yQCd7cAAAAJ&hl=en" target="_blank" rel="noopener"
+             style="color:var(--blue-bright);text-decoration:none;font-weight:500;">
+            View full list on Google Scholar →
+          </a>
+        </p>
+      </div>
+
+      <div class="pub-list">
+
+        <!-- Pub 1: CtxRead -->
+        <div class="pub-item sr">
+          <span class="pub-year">ETRA '25</span>
+          <div class="pub-content">
+            <h4 class="pub-title">
+              <a href="https://doi.org/10.1145/3715669.3725897" target="_blank" rel="noopener">
+                CtxRead: Context Preservation Through Eye Tracking — Adaptive Reading Application Design for an Optimal Reading Experience
+              </a>
+            </h4>
+            <p class="pub-authors">
+              Jensen, H.E., <strong>Ilyas, C.M.A.</strong>, Tashk, A., Cooreman, B., Beier, S. &amp; Bækgaard, P.
+            </p>
+            <p class="pub-venue">
+              <span>ACM Symposium on Eye Tracking Research and Applications (ETRA 2025)</span>,
+              Tokyo, Japan · May 2025 · Article 78 · Open Access CC BY 4.0
+            </p>
+            <p class="pub-abstract">
+              Introduces <em>context preservation</em> — a gaze-based mechanism that helps readers
+              resume reading after typographic adaptations. A 22-participant within-subjects experiment
+              compared four intervention designs (Popup, Undo, Notification, Gradual). The
+              <strong>Gradual intervention</strong> achieved the lowest Reading-Resume Time and highest
+              participant satisfaction.
+            </p>
+            <div class="pub-links">
+              <a class="pub-link" href="https://doi.org/10.1145/3715669.3725897" target="_blank" rel="noopener">DOI</a>
+              <a class="pub-link" href="https://orbit.dtu.dk/files/406853513/3715669.3725897.pdf" target="_blank" rel="noopener">PDF</a>
+              <a class="pub-link" href="https://doi.org/10.11583/DTU.28683917.v1" target="_blank" rel="noopener">Dataset</a>
+              <a class="pub-link" href="https://orbit.dtu.dk/en/publications/context-preservation-through-eye-tracking-adaptive-reading-applic/" target="_blank" rel="noopener">DTU Orbit</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pub 2: RtR-AI -->
+        <div class="pub-item sr">
+          <span class="pub-year">ETRA '25</span>
+          <div class="pub-content">
+            <h4 class="pub-title">
+              <a href="https://doi.org/10.1145/3715669.3726846" target="_blank" rel="noopener">
+                RtR-AI: Reading the Reader's Mind through Eye Tracking — Can AI Generated Texts Match Human Authors?
+              </a>
+            </h4>
+            <p class="pub-authors">
+              <strong>Ilyas, C.M.A.</strong>, Noor, S.-E., Tashk, A., Cooreman, B., Beier, S. &amp; Bækgaard, P.
+            </p>
+            <p class="pub-venue">
+              <span>ACM Symposium on Eye Tracking Research and Applications (ETRA 2025)</span>,
+              Tokyo, Japan · May 2025 · Article 113 · Open Access CC BY 4.0
+            </p>
+            <p class="pub-abstract">
+              First eye-tracking investigation comparing cognitive reading behaviour between
+              LLM-generated and human-authored texts. Gaze data from 13 participants analysed
+              using the I2MC fixation detection algorithm. Significant differences in fixation
+              characteristics, pupil dilation, and reading speed identified between AI and human text.
+            </p>
+            <div class="pub-links">
+              <a class="pub-link" href="https://doi.org/10.1145/3715669.3726846" target="_blank" rel="noopener">DOI</a>
+              <a class="pub-link" href="https://orbit.dtu.dk/files/406853299/3715669.3726846.pdf" target="_blank" rel="noopener">PDF</a>
+              <a class="pub-link" href="https://orbit.dtu.dk/en/publications/reading-the-readers-mind-through-eye-tracking-can-ai-generated-te/" target="_blank" rel="noopener">DTU Orbit</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pub 3: NLIR-BERT -->
+        <div class="pub-item sr">
+          <span class="pub-year">IEEE '25</span>
+          <div class="pub-content">
+            <h4 class="pub-title">
+              <a href="https://orbit.dtu.dk/en/publications/native-language-identification-from-gaze-logistic-regression-vs-b/" target="_blank" rel="noopener">
+                NLIR-BERT: Native Language Identification from Gaze — Logistic Regression vs. BERT on MECO-L2
+              </a>
+            </h4>
+            <p class="pub-authors">
+              Tashk, A., <strong>Ilyas, C.M.A.</strong>, Cooreman, B., Beier, S. &amp; Bækgaard, P.
+            </p>
+            <p class="pub-venue">
+              <span>IEEE 7th International Conference on Cybernetics, Cognition and Machine Learning Applications (ICCCMLA 2025)</span>,
+              1–2 November 2025 · In Press
+            </p>
+            <p class="pub-abstract">
+              First BERT-based classifier for Native Language Identification from Reading (NLIR)
+              using gaze features from the MECO-L2 Wave 1 corpus. Monte Carlo simulation with
+              20 randomised splits for robust small-sample evaluation. BERT produces linguistically
+              more meaningful language clusters than logistic regression despite comparable accuracy.
+            </p>
+            <div class="pub-links">
+              <a class="pub-link" href="https://orbit.dtu.dk/files/420980447/2025353639.pdf" target="_blank" rel="noopener">PDF</a>
+              <a class="pub-link" href="https://orbit.dtu.dk/en/publications/native-language-identification-from-gaze-logistic-regression-vs-b/" target="_blank" rel="noopener">DTU Orbit</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pub 4: WorkAffect -->
+        <div class="pub-item sr">
+          <span class="pub-year">arXiv '21</span>
+          <div class="pub-content">
+            <h4 class="pub-title">
+              <a href="https://arxiv.org/abs/2111.11862" target="_blank" rel="noopener">
+                WorkAffect: Inferring User Facial Affect in Work-like Settings
+              </a>
+            </h4>
+            <p class="pub-authors">
+              <strong>Ilyas, C.M.A.</strong> et al.
+            </p>
+            <p class="pub-venue">
+              <span>arXiv preprint · WorkingAge / EU Horizon 2020 Project</span>
+              · November 2021 · arXiv:2111.11862
+            </p>
+            <p class="pub-abstract">
+              A system for continuous valence/arousal affect inference from facial cues in
+              naturalistic work-like environments, developed within the EU H2020 WorkingAge project.
+              Addresses challenges of subtle workplace expressions, variable illumination, and
+              unobtrusive sensing — demonstrating that dimensional models outperform categorical
+              classification for in-the-wild occupational affective computing.
+            </p>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2111.11862" target="_blank" rel="noopener">arXiv</a>
+              <a class="pub-link" href="https://www.workingage.eu/" target="_blank" rel="noopener">WorkingAge Project</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ EXPERIENCE ═══════════════ -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header sr">
+        <div class="section-label">Career</div>
+        <h2 class="section-title">Experience & Education</h2>
+        <p class="section-sub">
+          A trajectory spanning four countries, combining basic cognitive research with applied AI
+          and human-centred computing.
+        </p>
+      </div>
+
+      <div class="exp-timeline">
+
+        <div class="exp-item sr">
+          <div class="exp-period">2023 – Present</div>
+          <div class="exp-role">Postdoctoral Researcher</div>
+          <div class="exp-place">
+            <a href="https://www.compute.dtu.dk/" target="_blank" rel="noopener">DTU Compute, Technical University of Denmark</a>
+            · Copenhagen, Denmark
+          </div>
+          <p class="exp-desc">
+            Working on the <em>Reading the Reader</em> project (Novo Nordisk Foundation, grant NF22OC0076877)
+            with Assoc. Prof. Per Bækgaard. Developing eye-tracking and Bayesian methods to
+            understand typographic effects on reading and deploy adaptive, AI-driven reading interfaces.
+            Collaborating with the Royal Danish Academy — Architecture, Design, Conservation.
+          </p>
+        </div>
+
+        <div class="exp-item sr">
+          <div class="exp-period">2021 – 2023</div>
+          <div class="exp-role">Postdoctoral Researcher</div>
+          <div class="exp-place">
+            <a href="https://cambridge-afar.github.io/" target="_blank" rel="noopener">Affective Intelligence and Robotics Lab (AFAR), University of Cambridge</a>
+            · Cambridge, UK
+          </div>
+          <p class="exp-desc">
+            Contributed to the <em>WorkingAge</em> project (EU Horizon 2020, grant No. 826232),
+            focusing on affective analysis of workers using computer vision, multimodal sensing,
+            and deep learning to promote healthy habits and improved wellbeing in professional settings.
+          </p>
+        </div>
+
+        <div class="exp-item sr">
+          <div class="exp-period">2017 – 2021</div>
+          <div class="exp-role">PhD in Computer Science</div>
+          <div class="exp-place">
+            <a href="https://www.en.aau.dk/" target="_blank" rel="noopener">Aalborg University</a>
+            · Denmark
+          </div>
+          <p class="exp-desc">
+            Doctoral research on <em>Facial Emotion Recognition for Citizens with Traumatic Brain Injury
+            for Therapeutic Robot Interaction</em>, conducted jointly within the Visual Analysis &amp;
+            Perception (VAP) and Human–Robot Interaction (HRI) Labs.
+          </p>
+        </div>
+
+        <div class="exp-item sr">
+          <div class="exp-period">2015 – 2016</div>
+          <div class="exp-role">MSc · Electrical &amp; Electronics Engineering</div>
+          <div class="exp-place">
+            <a href="https://www.coventry.ac.uk/" target="_blank" rel="noopener">Coventry University</a>
+            · Coventry, UK
+          </div>
+          <p class="exp-desc">
+            Graduated with a Master's degree in Electrical &amp; Electronics Engineering.
+            Awarded the Global Leadership Certificate (GLC) for organising seminars, events, and
+            talks under the Global Leadership Programme (GLP).
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ BLOG ════════════════════ -->
+  <section class="section section--alt" id="blog">
+    <div class="container">
+      <div class="section-header sr">
+        <div class="section-label">Writing</div>
+        <h2 class="section-title">Blog Posts</h2>
+        <p class="section-sub">
+          Science communication pieces written during my PostDoc at the
+          <a href="https://cambridge-afar.github.io/" target="_blank" rel="noopener"
+             style="color:var(--blue-bright);text-decoration:none;">AFAR Lab, University of Cambridge</a>,
+          published on the
+          <a href="https://www.workingage.eu/category/sin-categoria/blog/" target="_blank" rel="noopener"
+             style="color:var(--blue-bright);text-decoration:none;">WorkingAge project blog</a>
+          (EU Horizon 2020).
+        </p>
+      </div>
+
+      <div class="blog-grid">
+
+        <!-- Blog 1 -->
+        <article class="bcard sr">
+          <div class="bcard__top"></div>
+          <div class="bcard__body">
+            <div class="bcard__meta">
+              <span class="bcard__date">Nov 2021</span>
+              <span class="bcard__venue">WorkingAge · CSCW'21 Workshop</span>
+            </div>
+            <h3 class="bcard__title">Inferring User Facial Affect in Work-like Tasks and Environment</h3>
+            <p class="bcard__excerpt">
+              Reporting on work presented at the "Human-Machine Partnerships in the Future of Work"
+              workshop at CSCW'21. Describes a facial affect analysis system for naturalistic work
+              settings that models workers' emotional states using valence and arousal dimensions —
+              showing that pre-trained models on naturalistic datasets generalise well to workplace affect.
+            </p>
+            <div class="bcard__footer">
+              <div class="bcard__tags">
+                <span class="tag tag--blue">Affective Computing</span>
+                <span class="tag tag--gold">FER</span>
+                <span class="tag tag--slate">WorkingAge</span>
+              </div>
+              <a class="bcard__link"
+                 href="https://www.workingage.eu/inferring-user-facial-affect-in-work-like-tasks-and-environment/"
+                 target="_blank" rel="noopener">Read post →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog 2 -->
+        <article class="bcard sr">
+          <div class="bcard__top"></div>
+          <div class="bcard__body">
+            <div class="bcard__meta">
+              <span class="bcard__date">2021</span>
+              <span class="bcard__venue">WorkingAge · Part II</span>
+            </div>
+            <h3 class="bcard__title">RED-AI: How Costly Are the New Machine Learning Models? — Fast &amp; Efficient Training Methods</h3>
+            <p class="bcard__excerpt">
+              The second part of the RED-AI series covers practical techniques for training large
+              machine learning models more efficiently — addressing the growing carbon footprint
+              and accessibility barriers raised in Part I, and offering concrete methods to make
+              deep learning research more sustainable and open.
+            </p>
+            <div class="bcard__footer">
+              <div class="bcard__tags">
+                <span class="tag tag--blue">Efficient AI</span>
+                <span class="tag tag--gold">Sustainability</span>
+                <span class="tag tag--slate">ML Training</span>
+              </div>
+              <a class="bcard__link"
+                 href="https://www.workingage.eu/red-ai-how-costly-are-the-new-machine-learning-models-part-ii-fast-and-efficient-ways-for-training-large-machine-learning-models/"
+                 target="_blank" rel="noopener">Read post →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog 3 -->
+        <article class="bcard sr">
+          <div class="bcard__top"></div>
+          <div class="bcard__body">
+            <div class="bcard__meta">
+              <span class="bcard__date">2021</span>
+              <span class="bcard__venue">WorkingAge · Part I</span>
+            </div>
+            <h3 class="bcard__title">RED-AI: How Costly Are the New Machine Learning Models? (Part I)</h3>
+            <p class="bcard__excerpt">
+              Introduces the concept of "RED AI" — the trend of prioritising accuracy over
+              computational efficiency. Examines how the compute cost of state-of-the-art models
+              grew 300,000× between AlexNet (2012) and AlphaZero (2017), creating carbon
+              footprint concerns and raising the entry bar for academic researchers.
+            </p>
+            <div class="bcard__footer">
+              <div class="bcard__tags">
+                <span class="tag tag--blue">RED AI</span>
+                <span class="tag tag--gold">Deep Learning</span>
+                <span class="tag tag--slate">Carbon Cost</span>
+              </div>
+              <a class="bcard__link"
+                 href="https://www.workingage.eu/red-ai-how-costly-are-the-new-machine-learning-models-part-1/"
+                 target="_blank" rel="noopener">Read post →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog 4 -->
+        <article class="bcard sr">
+          <div class="bcard__top"></div>
+          <div class="bcard__body">
+            <div class="bcard__meta">
+              <span class="bcard__date">Mar 2021</span>
+              <span class="bcard__venue">WorkingAge · ICPR 2020 / CARE Workshop</span>
+            </div>
+            <h3 class="bcard__title">Artificial Emotional Intelligence for Wellbeing</h3>
+            <p class="bcard__excerpt">
+              Covers the CARE 2020 workshop ("Pattern Recognition for positive teChnology And
+              eldeRly wEllbeing") at ICPR2020. Discusses computational models for automatically
+              evaluating the emotional wellbeing of elderly people using non-verbal social signals —
+              facial expressions, body language, and gestures — in ecological, unconstrained settings.
+            </p>
+            <div class="bcard__footer">
+              <div class="bcard__tags">
+                <span class="tag tag--blue">Emotional AI</span>
+                <span class="tag tag--gold">Wellbeing</span>
+                <span class="tag tag--slate">ICPR 2020</span>
+              </div>
+              <a class="bcard__link"
+                 href="https://www.workingage.eu/artificial-emotional-intelligence-for-wellbeing/"
+                 target="_blank" rel="noopener">Read post →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog 5 -->
+        <article class="bcard sr">
+          <div class="bcard__top"></div>
+          <div class="bcard__body">
+            <div class="bcard__meta">
+              <span class="bcard__date">2020–2021</span>
+              <span class="bcard__venue">WorkingAge · Beyondwork2020 Conference</span>
+            </div>
+            <h3 class="bcard__title">Beyondwork2020 — How Can Artificial Emotional Intelligence Contribute to the Future of Work?</h3>
+            <p class="bcard__excerpt">
+              Co-authored with Dr. Hatice Gunes (Cambridge). Reports on the European
+              Beyondwork2020 conference (Bonn, Germany), exploring how cognitive training via
+              virtual reality and affective adaptation can shape healthier, more supportive
+              workplaces in the post-COVID era.
+            </p>
+            <div class="bcard__footer">
+              <div class="bcard__tags">
+                <span class="tag tag--blue">Future of Work</span>
+                <span class="tag tag--gold">VR &amp; AI</span>
+                <span class="tag tag--slate">COVID-19</span>
+              </div>
+              <a class="bcard__link"
+                 href="https://www.workingage.eu/beyondwork2020-how-can-artificial-emotional-intelligence-contribute-to-the-future-of-work/"
+                 target="_blank" rel="noopener">Read post →</a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /blog-grid -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ INTERESTS ════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header sr">
+        <div class="section-label">Themes</div>
+        <h2 class="section-title">Research Interests</h2>
+      </div>
+      <div class="interests-grid">
+        <div class="interest-item sr">
+          <span class="interest-icon">😊</span>
+          <div class="interest-text">
+            <h4>Affective Computing</h4>
+            <p>Modelling emotional and behavioural states in occupational and real-world settings.</p>
+          </div>
+        </div>
+        <div class="interest-item sr">
+          <span class="interest-icon">🤖</span>
+          <div class="interest-text">
+            <h4>Human–Robot Interaction</h4>
+            <p>Designing socially intelligent robots that perceive and respond to human affect.</p>
+          </div>
+        </div>
+        <div class="interest-item sr">
+          <span class="interest-icon">🧬</span>
+          <div class="interest-text">
+            <h4>Neuroinspired AI</h4>
+            <p>Brain-inspired computation for perception, reading, and decision-making.</p>
+          </div>
+        </div>
+        <div class="interest-item sr">
+          <span class="interest-icon">👀</span>
+          <div class="interest-text">
+            <h4>Computer Vision</h4>
+            <p>Facial expression recognition, action recognition, and multimodal sensing.</p>
+          </div>
+        </div>
+        <div class="interest-item sr">
+          <span class="interest-icon">📖</span>
+          <div class="interest-text">
+            <h4>Reading Science</h4>
+            <p>Typography, legibility, adaptive interfaces, and eye-tracking for literacy support.</p>
+          </div>
+        </div>
+        <div class="interest-item sr">
+          <span class="interest-icon">📊</span>
+          <div class="interest-text">
+            <h4>Bayesian Modelling</h4>
+            <p>Hierarchical models, MCMC inference, and probabilistic analysis of cognitive data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ AWARDS ═══════════════════ -->
+  <section class="section section--dark" id="awards">
+    <div class="container">
+      <div class="section-header sr">
+        <div class="section-label" style="color:var(--gold-light);">Recognition</div>
+        <h2 class="section-title">Honors, Awards &amp; Grants</h2>
+        <p class="section-sub">Selected recognitions across research, leadership, and innovation.</p>
+      </div>
+
+      <div class="awards-grid">
+        <div class="award-item sr">
+          <span class="award-year">Sep 2020</span>
+          <div class="award-text">
+            International Networking Innovation Fund, Denmark —
+            <span class="award-amount">€30,000</span>
+            <br><em style="font-size:.82rem;opacity:.7;">(Applied in collaboration)</em>
+          </div>
+        </div>
+        <div class="award-item sr">
+          <span class="award-year">Nov 2018</span>
+          <div class="award-text">Research Stay Abroad Grant — <span class="award-amount">DKK 25,000</span></div>
+        </div>
+        <div class="award-item sr">
+          <span class="award-year">Feb 2018</span>
+          <div class="award-text">Otto Mønsted Conference Grant — <span class="award-amount">DKK 10,000</span></div>
+        </div>
+        <div class="award-item sr">
+          <span class="award-year">2018–2020</span>
+          <div class="award-text">Board Member, PhD Network Association (PAU), Aalborg University</div>
+        </div>
+        <div class="award-item sr">
+          <span class="award-year">Jan 2016</span>
+          <div class="award-text">
+            Global Leadership Certificate (GLC), Coventry University
+            <br><em style="font-size:.82rem;opacity:.7;">Awarded for organising seminars, events &amp; talks under the Global Leadership Programme</em>
+          </div>
+        </div>
+        <div class="award-item sr">
+          <span class="award-year">Aug 2015</span>
+          <div class="award-text">Travel Grant for Industry Visits — Airbus &amp; Volkswagen, Germany</div>
+        </div>
+        <div class="award-item sr">
+          <span class="award-year">Jun 2015</span>
+          <div class="award-text">Research Assistantship, Coventry University, UK</div>
+        </div>
+        <div class="award-item sr">
+          <span class="award-year">Apr 2015</span>
+          <div class="award-text">
+            <span class="award-amount">2nd Prize</span>, NEC Birmingham Engineering &amp; Design Competition, UK
+          </div>
+        </div>
+        <div class="award-item sr">
+          <span class="award-year">Mar 2015</span>
+          <div class="award-text">Cultural Mundi Representative, Coventry University, UK</div>
+        </div>
+        <div class="award-item sr">
+          <span class="award-year">2010–2011</span>
+          <div class="award-text">
+            <span class="award-amount">"Talent Award" (×2)</span>,
+            Study Aid Foundation for Excellence (SAFE)
+          </div>
+        </div>
+      </div>
+
+      <!-- Funding -->
+      <div style="margin-top:3.5rem;">
+        <div class="section-label sr" style="color:var(--gold-light);">Funding</div>
+        <h3 class="sr" style="font-family:var(--ff-display);font-size:2rem;font-weight:600;color:#fff;margin-bottom:1.75rem;">Research Funding</h3>
+        <div class="funding-cards">
+          <div class="fcard sr">
+            <div class="fcard__funder">Novo Nordisk Foundation</div>
+            <div class="fcard__project">Reading the Reader (RtR)</div>
+            <div class="fcard__grant">Grant agreement NF22OC0076877</div>
+            <p class="fcard__desc">
+              Developing AI-driven adaptive reading interfaces using eye-tracking and biometric sensors,
+              in collaboration with the Royal Danish Academy and DTU Compute's Cognitive Systems Section.
+            </p>
+          </div>
+          <div class="fcard sr">
+            <div class="fcard__funder">European Union · Horizon 2020</div>
+            <div class="fcard__project">WorkingAge</div>
+            <div class="fcard__grant">Grant agreement No. 826232</div>
+            <p class="fcard__desc">
+              Affective analysis of workers to promote healthy habits, improve working conditions,
+              and support well-being in professional and daily living contexts. Hosted at AFAR Lab, Cambridge.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ CONTACT ══════════════════ -->
+  <section class="section section--dark" id="contact" style="padding-top:0;">
+    <div class="container" style="padding-top:4rem; border-top:1px solid rgba(255,255,255,.1);">
+      <div class="section-header sr">
+        <div class="section-label" style="color:var(--blue-bright);">Connect</div>
+        <h2 class="section-title">Let's Talk</h2>
+        <p class="section-sub">
+          Open to research collaborations, supervision discussions, invited talks,
+          and questions about my work.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Contact details -->
+        <div class="sr">
+          <div class="contact-item">
+            <div class="contact-icon-wrap">📧</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <a href="mailto:engr.aqdus@gmail.com">engr.aqdus@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-wrap">🏢</div>
+            <div>
+              <div class="contact-label">Office</div>
+              <div class="contact-value">
+                DTU Compute · Cognitive Systems Section<br>
+                Richard Petersens Plads<br>
+                Technical University of Denmark<br>
+                2800 Kgs. Lyngby, Denmark
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-wrap">🌍</div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Copenhagen, Denmark</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile links -->
+        <div class="sr">
+          <div class="profiles-list">
+            <a class="profile-link" href="https://scholar.google.com/citations?user=5yQCd7cAAAAJ&hl=en" target="_blank" rel="noopener">
+              <span class="profile-link-icon">🎓</span>
+              <span class="profile-link-text">
+                <strong>Google Scholar</strong>
+                <span>Citations &amp; publication record</span>
+              </span>
+              <span class="profile-link-arrow">→</span>
+            </a>
+            <a class="profile-link" href="https://orcid.org/0000-0002-0766-3531" target="_blank" rel="noopener">
+              <span class="profile-link-icon">🔬</span>
+              <span class="profile-link-text">
+                <strong>ORCID</strong>
+                <span>0000-0002-0766-3531</span>
+              </span>
+              <span class="profile-link-arrow">→</span>
+            </a>
+            <a class="profile-link" href="https://github.com/Aqdus01" target="_blank" rel="noopener">
+              <span class="profile-link-icon">⌨️</span>
+              <span class="profile-link-text">
+                <strong>GitHub</strong>
+                <span>Aqdus01</span>
+              </span>
+              <span class="profile-link-arrow">→</span>
+            </a>
+            <a class="profile-link" href="https://aqdus01.github.io/about/" target="_blank" rel="noopener">
+              <span class="profile-link-icon">🧑‍💻</span>
+              <span class="profile-link-text">
+                <strong>Full Academic Profile</strong>
+                <span>Publications, projects &amp; CV</span>
+              </span>
+              <span class="profile-link-arrow">→</span>
+            </a>
+            <a class="profile-link" href="https://vbn.aau.dk/en/publications/facial-emotion-recognition-for-citizens-with-traumatic-brain-inju/" target="_blank" rel="noopener">
+              <span class="profile-link-icon">📄</span>
+              <span class="profile-link-text">
+                <strong>PhD Thesis</strong>
+                <span>Facial Emotion Recognition for TBI · Aalborg University</span>
+              </span>
+              <span class="profile-link-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ FOOTER ═══════════════════ -->
+  <footer>
+    <p>
+      © 2026 Chaudhary Muhammad Aqdus Ilyas ·
+      Postdoctoral Researcher, DTU Compute ·
+      <a href="mailto:engr.aqdus@gmail.com">engr.aqdus@gmail.com</a>
+    </p>
+    <p style="margin-top:.5rem; font-size:.78rem; opacity:.6;">
+      Built with semantic HTML &amp; CSS · Hosted on GitHub Pages ·
+      <a href="https://aqdus01.github.io/about/" style="opacity:.8;">Academic Jekyll site →</a>
+    </p>
+  </footer>
+
+  <!-- ═══════════════════════════════════ JS ════════════════════════ -->
+  <script>
+    // Navbar scroll class
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Scroll reveal
+    const sr = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          sr.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.sr').forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 6) * 80}ms`;
+      sr.observe(el);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
