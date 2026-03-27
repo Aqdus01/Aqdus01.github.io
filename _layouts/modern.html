@@ -6,6 +6,15 @@
   <title>{{ page.title }} | Muhammad Aqdus Ilyas</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}" />
 
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme','dark');
+      }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -33,6 +42,28 @@
       --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
       --nav-h:       68px;
     }
+
+    /* Dark mode */
+    [data-theme="dark"] {
+      --ink:         #F1F5F9;
+      --ink-mid:     #CBD5E1;
+      --ink-light:   #94A3B8;
+      --blue-deep:   #93C5FD;
+      --blue-mid:    #60A5FA;
+      --blue-bright: #7DD3FC;
+      --gold:        #FCD34D;
+      --cream:       #0F172A;
+      --surface:     #1E293B;
+      --border:      #334155;
+      --white:       #1E293B;
+    }
+    [data-theme="dark"] body { background:#0F172A; color:#F1F5F9; }
+    [data-theme="dark"] .nav { background:rgba(15,23,42,0.93); }
+    [data-theme="dark"] .page-hero { background:linear-gradient(135deg,#0F172A 0%,#0C1A30 100%); }
+    [data-theme="dark"] .site-footer { background:#020817; }
+    [data-theme="dark"] .prose blockquote { background:rgba(125,211,252,.06); }
+    [data-theme="dark"] .prose code { background:rgba(125,211,252,.1); color:var(--blue-bright); }
+    [data-theme="dark"] .prose pre { background:#1E293B; }
 
     body {
       font-family: var(--ff-body);
@@ -86,6 +117,38 @@
     .nav__links a:hover::after { width:100%; }
     .nav__links a.active { color:var(--blue-deep); font-weight:500; }
     .nav__links a.active::after { width:100%; }
+
+    .nav__theme-btn {
+      display:flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border-radius:8px;
+      border:1.5px solid var(--border);
+      background:transparent; cursor:pointer;
+      color:var(--ink-mid); font-size:1rem;
+      transition:border-color .2s, color .2s, background .2s;
+      flex-shrink:0;
+    }
+    .nav__theme-btn:hover {
+      border-color:var(--blue-bright); color:var(--blue-deep);
+      background:rgba(66,153,225,.07);
+    }
+
+    .scroll-top {
+      position:fixed; bottom:2rem; right:2rem;
+      width:44px; height:44px; border-radius:10px;
+      background:var(--blue-deep); color:#fff;
+      border:none; cursor:pointer; font-size:1.1rem;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 20px rgba(30,58,95,.3);
+      z-index:900;
+      opacity:0; transform:translateY(12px);
+      transition:opacity .3s, transform .3s var(--ease-out), background .2s;
+      pointer-events:none;
+    }
+    .scroll-top.visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .scroll-top:hover {
+      background:var(--blue-mid); transform:translateY(-3px);
+      box-shadow:0 8px 28px rgba(43,108,176,.35);
+    }
 
     /* ── Page Hero ── */
     .page-hero {
@@ -247,8 +310,11 @@
         <li><a href="/cv/" {% if page.permalink == '/cv/' %}class="active"{% endif %}>CV</a></li>
         <li><a href="/#contact">Contact</a></li>
       </ul>
+      <button class="nav__theme-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
     </div>
   </nav>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top" title="Back to top">↑</button>
 
   <!-- Page Hero -->
   <div class="page-hero">
@@ -291,6 +357,30 @@
       document.querySelector('.nav').style.boxShadow =
         window.scrollY > 40 ? '0 4px 24px rgba(17,24,39,.08)' : '';
     }, { passive:true });
+
+    // Dark mode
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.setAttribute('data-theme', 'dark');
+      themeToggle.textContent = '☀️';
+    }
+    themeToggle.addEventListener('click', () => {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      themeToggle.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    });
+
+    // Scroll to top
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive:true });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
   </script>
 
 </body>
