@@ -105,6 +105,7 @@ Science communication written during my PostDoc at Cambridge AFAR Lab, published
 
 ## Academic Profiles
 
+- [DTU Official Profile](https://people.compute.dtu.dk/cmuai/)
 - [Google Scholar](https://scholar.google.com/citations?user=5yQCd7cAAAAJ&hl=en)
 - [ORCID: 0000-0002-0766-3531](https://orcid.org/0000-0002-0766-3531)
 - [ResearchGate](https://www.researchgate.net/profile/Chaudhary-Aqdus)
