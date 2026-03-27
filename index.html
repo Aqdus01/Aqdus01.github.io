@@ -744,6 +744,77 @@
     }
     .bcard__link:hover { color: var(--blue-deep); gap:.6rem; }
 
+    /* ── Teaching & Supervision ─────────────────────────────── */
+    .stats-bar {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+      gap:1.25rem;
+      margin-bottom:3rem;
+    }
+    .stat-box {
+      background: var(--white);
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:1.5rem 1.25rem;
+      text-align:center;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .stat-box:hover { transform:translateY(-4px); box-shadow:0 12px 30px rgba(17,24,39,.08); }
+    .stat-box__num {
+      font-family: var(--ff-display);
+      font-size:2.8rem; font-weight:700; line-height:1;
+      color: var(--blue-deep); margin-bottom:.35rem;
+    }
+    .stat-box__label {
+      font-family: var(--ff-mono);
+      font-size:.72rem; color: var(--ink-light);
+      letter-spacing:.06em; text-transform:uppercase;
+    }
+    .active-badge {
+      display:inline-flex; align-items:center; gap:.4rem;
+      padding:.2rem .6rem; border-radius:4px;
+      font-family:var(--ff-mono); font-size:.68rem; font-weight:600;
+      letter-spacing:.06em;
+    }
+    .active-badge--on { background:rgba(34,197,94,.12); color:#15803d; }
+    .active-badge--done { background:rgba(107,114,128,.1); color:#6B7280; }
+
+    .supv-type-group { margin-bottom:2.5rem; }
+    .supv-type-label {
+      font-family: var(--ff-mono);
+      font-size:.75rem; font-weight:600; letter-spacing:.1em;
+      text-transform:uppercase; color: var(--blue-bright);
+      border-bottom:1px solid var(--border);
+      padding-bottom:.5rem; margin-bottom:1.25rem;
+    }
+    .supv-list { display:flex; flex-direction:column; gap:.75rem; }
+    .supv-item {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:.75rem 1.5rem;
+      align-items:start;
+      padding:1rem 1.25rem;
+      background: var(--white);
+      border:1px solid var(--border);
+      border-radius:8px;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .supv-item:hover { border-color:var(--blue-bright); box-shadow:0 4px 16px rgba(17,24,39,.06); }
+    .supv-item--active { border-left:3px solid #22C55E; }
+    .supv-title {
+      font-family: var(--ff-display);
+      font-size:1.1rem; font-weight:600; line-height:1.35;
+      color: var(--blue-deep); margin-bottom:.3rem;
+    }
+    .supv-period {
+      font-family: var(--ff-mono);
+      font-size:.72rem; color: var(--ink-light); letter-spacing:.04em;
+    }
+    .supv-meta {
+      display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
+      margin-top:.35rem;
+    }
+
     /* ── Utilities ──────────────────────────────────────────── */
     .divider {
       height:1px; background:var(--border);
@@ -788,6 +859,7 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#blog">Blog</a></li>
+        <li><a href="#supervision">Teaching</a></li>
         <li><a href="#awards">Awards</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1338,6 +1410,394 @@
         </article>
 
       </div><!-- /blog-grid -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ TEACHING & SUPERVISION ══════ -->
+  <section class="section" id="supervision">
+    <div class="container">
+      <div class="section-header sr">
+        <div class="section-label">Mentorship</div>
+        <h2 class="section-title">Project Supervision &amp; Teaching</h2>
+        <p class="section-sub">
+          Supervising student projects at DTU Compute, Department of Applied Mathematics
+          and Computer Science, within the <em>Reading the Reader</em> research group.
+          Projects span eye-tracking, adaptive reading interfaces, typography, cognitive AI,
+          and HCI — at BSc, MSc, and Diploma level.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-bar sr">
+        <div class="stat-box">
+          <div class="stat-box__num">36</div>
+          <div class="stat-box__label">Total Projects</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box__num">5</div>
+          <div class="stat-box__label">Active Now</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box__num">26</div>
+          <div class="stat-box__label">MSc Theses</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box__num">3</div>
+          <div class="stat-box__label">BSc Projects</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box__num">4</div>
+          <div class="stat-box__label">Special Courses</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box__num">2</div>
+          <div class="stat-box__label">Diploma Projects</div>
+        </div>
+      </div>
+
+      <!-- ── Active Projects ───────────────────────────────────── -->
+      <div class="supv-type-group sr">
+        <div class="supv-type-label">🟢 Active Projects — 2026</div>
+        <div class="supv-list">
+
+          <div class="supv-item supv-item--active">
+            <div>
+              <div class="supv-title">Adaptive Reading Systems: A Modular Software Architecture</div>
+              <div class="supv-meta">
+                <span class="tag tag--blue">MSc Thesis</span>
+                <span class="supv-period">Feb 2026 – Jul 2026</span>
+              </div>
+            </div>
+            <span class="active-badge active-badge--on">Ongoing</span>
+          </div>
+
+          <div class="supv-item supv-item--active">
+            <div>
+              <div class="supv-title">Smart Reading Support: Adaptive Cognitive Anchoring from Eye-Tracking Signals</div>
+              <div class="supv-meta">
+                <span class="tag tag--blue">MSc Thesis</span>
+                <span class="supv-period">Feb 2026 – Jul 2026</span>
+              </div>
+            </div>
+            <span class="active-badge active-badge--on">Ongoing</span>
+          </div>
+
+          <div class="supv-item supv-item--active">
+            <div>
+              <div class="supv-title">Reading the Struggle: Using Machine Learning to Detect Reading Difficulty in Near Real-Time</div>
+              <div class="supv-meta">
+                <span class="tag tag--blue">MSc Thesis</span>
+                <span class="supv-period">Feb 2026 – Jul 2026</span>
+              </div>
+            </div>
+            <span class="active-badge active-badge--on">Ongoing</span>
+          </div>
+
+          <div class="supv-item supv-item--active">
+            <div>
+              <div class="supv-title">Designing a Usable Eye-Tracking System for Vertigo Patients: Improving Interaction in Extreme Physical and Cognitive Conditions</div>
+              <div class="supv-meta">
+                <span class="tag tag--blue">MSc Thesis</span>
+                <span class="supv-period">Mar 2026 – Sep 2026</span>
+              </div>
+            </div>
+            <span class="active-badge active-badge--on">Ongoing</span>
+          </div>
+
+          <div class="supv-item supv-item--active">
+            <div>
+              <div class="supv-title">The Impact of Font Width on Readability and User Experience in Digital Text</div>
+              <div class="supv-meta">
+                <span class="tag tag--blue">MSc Thesis</span>
+                <span class="supv-period">Sep 2025 – Mar 2026</span>
+              </div>
+            </div>
+            <span class="active-badge active-badge--on">Ongoing</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Completed MSc Theses ──────────────────────────────── -->
+      <div class="supv-type-group sr">
+        <div class="supv-type-label">MSc Theses — Completed (Kandidatspeciale)</div>
+        <div class="supv-list">
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Developing a Tool for Detecting Manipulated Face Images Using Eye-Tracking Data from Human Super-Recognizers</div>
+              <div class="supv-meta"><span class="supv-period">Jul 2023 – Jan 2024</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Analysing Eye Movements for Patients with Acute Vertigo</div>
+              <div class="supv-meta"><span class="supv-period">Feb 2024 – Jul 2024</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Unveiling Reading Patterns: Exploring the Impact of Writing Styles on Reading Behaviour through Eye Tracking</div>
+              <div class="supv-meta"><span class="supv-period">Jan 2024 – Aug 2024</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Designing a Typography-Adaptive Reading Interface for Individuals with Central Vision Loss</div>
+              <div class="supv-meta"><span class="supv-period">Jan 2024 – Jun 2024</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Utilizing Transformer-Based Encoding on Eye-Tracking Data to Enhance Reading for CVL Patients</div>
+              <div class="supv-meta"><span class="supv-period">Sep 2024 – Apr 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Intervening without Interrupting: A Study on the Optimal Level of Intervention in Reading Applications with Adaptive User Interfaces</div>
+              <div class="supv-meta"><span class="supv-period">Aug 2024 – Jan 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Integrating User-Centric Design Practices to Enhance the Understandability of Complex Clinical Data Visualizations</div>
+              <div class="supv-meta"><span class="supv-period">Aug 2024 – Jan 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Visual Comfort and Reading Performance: Investigating the Impact of Text Spacing Through Eye Tracking</div>
+              <div class="supv-meta"><span class="supv-period">Dec 2024 – May 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Prototyping and Evaluating Adaptive Reading Interfaces for Improved User Experience</div>
+              <div class="supv-meta"><span class="supv-period">Jan 2025 – Jun 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Understanding and Modeling Reading Styles Using Eye Tracking Data</div>
+              <div class="supv-meta"><span class="supv-period">Jan 2025 – Jun 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Investigating the Role of Typography in Enhancing Readability for Individuals with Reading Disabilities</div>
+              <div class="supv-meta"><span class="supv-period">Jan 2025 – Jul 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">User-Centered Design for Adaptive Reading Interfaces: Improving Accessibility through Usability Testing</div>
+              <div class="supv-meta"><span class="supv-period">Feb 2025 – Jul 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Utilizing Deep Learning for Gaze-Based Native Language Identification</div>
+              <div class="supv-meta"><span class="supv-period">May 2025 – Aug 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Utilizing Deep Learning for Native Language Identification from Reading</div>
+              <div class="supv-meta"><span class="supv-period">Jun 2025 – Aug 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Object and Action Recognition for Social Robotics</div>
+              <div class="supv-meta"><span class="supv-period">May 2025 – Oct 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Gaze Tracking with Transformer Model-Based Methods for Accurate Detection of Vertigo Attacks</div>
+              <div class="supv-meta"><span class="supv-period">Jun 2025 – Nov 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Evaluating Bold Typeface Variations for Readers With and Without Reading Difficulties to Improve Reading Experience</div>
+              <div class="supv-meta"><span class="supv-period">Aug 2025 – Oct 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Towards Early Detection of Children's Neurodevelopmental Disorders and Visual Impairments Using Eye Tracking: User Journey Mapping and Protocol Development</div>
+              <div class="supv-meta"><span class="supv-period">Jun 2025 – Dec 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Eye Signatures: Native Language Identification from Reading with Deep Vision Models</div>
+              <div class="supv-meta"><span class="supv-period">Aug 2025 – Jan 2026</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Flow-Aware Typography: Designing Emotionally Adaptive Reading Interfaces Using Visual Rhythm and Microfeedback Features</div>
+              <div class="supv-meta"><span class="supv-period">Jul 2025 – Jan 2026</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Implementation and Effects of a Generative-AI Agent as an Intelligent Tutoring System for Neurodivergent Students</div>
+              <div class="supv-meta"><span class="supv-period">Sep 2025 – Feb 2026</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Designing and Validating a Multiple-Camera Remote Eye-Tracker Using Embedded Hardware and Software</div>
+              <div class="supv-meta"><span class="supv-period">Nov 2025 – Feb 2026</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── BSc Projects ──────────────────────────────────────── -->
+      <div class="supv-type-group sr">
+        <div class="supv-type-label">BSc Projects — Completed (Bachelorprojekt)</div>
+        <div class="supv-list">
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Improving Reading amongst Dyslexics by Identifying Specific Issues Using Eye Tracking</div>
+              <div class="supv-meta"><span class="supv-period">Jan 2024 – Jun 2024</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">User Experience Design for Adaptive Reading Systems</div>
+              <div class="supv-meta"><span class="supv-period">Feb 2025 – Jun 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">The Effect of Design Changes on Gaze and User Interaction in Digital Learning Interfaces</div>
+              <div class="supv-meta"><span class="supv-period">Feb 2025 – Jun 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Special Courses ───────────────────────────────────── -->
+      <div class="supv-type-group sr">
+        <div class="supv-type-label">Special Courses — Completed (Specialkursus)</div>
+        <div class="supv-list">
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Adaptive Eye Tracking For Enhanced Reading</div>
+              <div class="supv-meta"><span class="supv-period">Jan 2024 – May 2024</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Quantifying Reading Progress through Eye Tracking and Voice Analysis</div>
+              <div class="supv-meta"><span class="supv-period">Jun 2025 – Aug 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Modeling Reading Styles Using Eye-Tracking and Machine Learning (ML)</div>
+              <div class="supv-meta"><span class="supv-period">Aug 2025 – Oct 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Imaging Eye Tracking Data for Deep Vision</div>
+              <div class="supv-meta"><span class="supv-period">Nov 2025 – Dec 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Diploma Projects ──────────────────────────────────── -->
+      <div class="supv-type-group sr">
+        <div class="supv-type-label">Diploma Engineering Projects — Completed (Diplomingeniørprojekt)</div>
+        <div class="supv-list">
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">From Voice to Journal: Helping Physiotherapists Capture the Moment</div>
+              <div class="supv-meta"><span class="supv-period">Sep 2025 – Dec 2025</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+          <div class="supv-item">
+            <div>
+              <div class="supv-title">Comparative Analysis of Reading and Gaze Patterns in Dyslexic and Non-Dyslexic Children Using Eye-Tracking Technology</div>
+              <div class="supv-meta"><span class="supv-period">Sep 2025 – Jan 2026</span></div>
+            </div>
+            <span class="active-badge active-badge--done">Completed</span>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
