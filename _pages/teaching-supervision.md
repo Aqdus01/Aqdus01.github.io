@@ -1,8 +1,8 @@
 ---
-layout: archive
+layout: modern
 title: "Project Supervision & Teaching"
 permalink: /teaching-supervision/
-author_profile: true
+section_label: "Mentorship"
 ---
 
 Supervising student projects at **DTU Compute**, Department of Applied Mathematics and Computer Science, within the [Reading the Reader](https://datascience.novonordiskfonden.dk/projects/reading-the-reader/) research group (Novo Nordisk Foundation, grant NF22OC0076877). Projects span eye-tracking, adaptive reading interfaces, typography, cognitive AI, HCI, and computer vision — at BSc, MSc, and Diploma level.
@@ -11,7 +11,7 @@ Supervising student projects at **DTU Compute**, Department of Applied Mathemati
 
 ---
 
-## 🟢 Active Projects (2026)
+## 🟢 Active Projects — 2026
 
 | Title | Type | Period |
 |-------|------|--------|
@@ -43,7 +43,7 @@ Supervising student projects at **DTU Compute**, Department of Applied Mathemati
 | Utilizing Deep Learning for Native Language Identification from Reading | Jun 2025 – Aug 2025 |
 | Object and Action Recognition for Social Robotics | May 2025 – Oct 2025 |
 | Gaze Tracking with Transformer Model-Based Methods for Accurate Detection of Vertigo Attacks | Jun 2025 – Nov 2025 |
-| Evaluating Bold Typeface Variations for Readers With and Without Reading Difficulties to Improve Reading Experience | Aug 2025 – Oct 2025 |
+| Evaluating Bold Typeface Variations for Readers With and Without Reading Difficulties | Aug 2025 – Oct 2025 |
 | Towards Early Detection of Children's Neurodevelopmental Disorders and Visual Impairments Using Eye Tracking | Jun 2025 – Dec 2025 |
 | Eye Signatures: Native Language Identification from Reading with Deep Vision Models | Aug 2025 – Jan 2026 |
 | Flow-Aware Typography: Designing Emotionally Adaptive Reading Interfaces Using Visual Rhythm and Microfeedback Features | Jul 2025 – Jan 2026 |
