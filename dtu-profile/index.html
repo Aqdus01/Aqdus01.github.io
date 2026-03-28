@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Aqdus Ilyas | DTU Compute</title>
+  <meta name="description" content="Postdoctoral Researcher at DTU Compute, Technical University of Denmark. Eye-tracking, cognitive neuroscience, affective computing, HRI." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+
+    :root {
+      --ink:         #111827;
+      --ink-mid:     #374151;
+      --ink-light:   #6B7280;
+      --blue-deep:   #1E3A5F;
+      --blue-mid:    #2B6CB0;
+      --blue-bright: #4299E1;
+      --gold:        #B7791F;
+      --cream:       #FAFAF8;
+      --surface:     #F3F4F6;
+      --border:      #E5E7EB;
+      --white:       #FFFFFF;
+      --ff-display:  'Cormorant Garamond', Georgia, serif;
+      --ff-body:     'IBM Plex Sans', system-ui, sans-serif;
+      --ff-mono:     'IBM Plex Mono', monospace;
+      --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body {
+      font-family: var(--ff-body);
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      background: var(--blue-deep);
+      color: rgba(255,255,255,.8);
+      font-family: var(--ff-mono);
+      font-size: .75rem;
+      letter-spacing: .06em;
+      text-align: center;
+      padding: .6rem 1rem;
+    }
+    .topbar a {
+      color: #93C5FD;
+      text-decoration: none;
+    }
+    .topbar a:hover { color: #fff; }
+
+    /* ── Nav ── */
+    .nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px rgba(17,24,39,.05);
+    }
+    .nav__inner {
+      max-width: 960px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--ff-display);
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--blue-deep); text-decoration: none;
+      letter-spacing: -.02em;
+    }
+    .nav__logo span { color: var(--gold); }
+    .nav__links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav__links a {
+      font-size: .85rem; color: var(--ink-mid);
+      text-decoration: none; letter-spacing: .03em;
+      transition: color .2s;
+    }
+    .nav__links a:hover { color: var(--blue-deep); }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--cream) 0%, #EBF4FF 100%);
+      padding: 4rem 2rem 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero__inner {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 3rem; align-items: center;
+    }
+    .hero__tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .3rem .8rem;
+      background: rgba(30,58,95,.07);
+      border: 1px solid rgba(30,58,95,.15);
+      border-radius: 999px;
+      font-family: var(--ff-mono); font-size: .72rem;
+      color: var(--blue-deep); letter-spacing: .06em;
+      margin-bottom: 1.25rem;
+    }
+    .hero__tag-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 3px rgba(34,197,94,.25);
+      animation: pulse 2.5s ease infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 3px rgba(34,197,94,.25); }
+      50%      { box-shadow: 0 0 0 6px rgba(34,197,94,.1); }
+    }
+    .hero__name {
+      font-family: var(--ff-display);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 600; line-height: 1.1;
+      letter-spacing: -.03em; color: var(--blue-deep);
+      margin-bottom: .5rem;
+    }
+    .hero__role {
+      font-size: 1.05rem; color: var(--blue-bright);
+      margin-bottom: 1.5rem;
+    }
+    .hero__bio {
+      font-size: .97rem; color: var(--ink-mid);
+      line-height: 1.85; max-width: 580px;
+      margin-bottom: 1.75rem;
+    }
+    .hero__bio a { color: var(--blue-bright); text-decoration: none; }
+    .hero__bio a:hover { text-decoration: underline; }
+    .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .7rem 1.4rem;
+      font-family: var(--ff-body); font-size: .875rem; font-weight: 500;
+      border-radius: 6px; text-decoration: none;
+      transition: all .3s var(--ease-out);
+    }
+    .btn-primary {
+      background: var(--blue-deep); color: #fff;
+      box-shadow: 0 4px 14px rgba(30,58,95,.2);
+    }
+    .btn-primary:hover {
+      background: var(--blue-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(43,108,176,.28);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--blue-deep); color: var(--blue-deep);
+    }
+    .btn-outline:hover {
+      background: var(--blue-deep); color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Photo */
+    .hero__photo {
+      width: 200px; flex-shrink: 0;
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(30,58,95,.16),
+                  0 0 0 1px rgba(30,58,95,.08);
+      aspect-ratio: 3/4;
+    }
+    .hero__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── Sections ── */
+    .section { padding: 3rem 2rem; border-bottom: 1px solid var(--border); }
+    .section:last-of-type { border-bottom: none; }
+    .section--alt { background: var(--surface); }
+    .inner { max-width: 960px; margin: 0 auto; }
+
+    .sec-label {
+      font-family: var(--ff-mono); font-size: .72rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--blue-bright); margin-bottom: .75rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .sec-label::before {
+      content: ''; display: block; width: 22px; height: 1.5px;
+      background: var(--blue-bright);
+    }
+    .sec-title {
+      font-family: var(--ff-display);
+      font-size: 2rem; font-weight: 600;
+      color: var(--blue-deep); letter-spacing: -.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Research grid */
+    .grid-2 {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .rcard {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.4rem 1.5rem;
+      transition: transform .3s, box-shadow .3s, border-color .25s;
+    }
+    .rcard:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(17,24,39,.08);
+      border-color: var(--blue-bright);
+    }
+    .rcard__icon { font-size: 1.3rem; margin-bottom: .7rem; }
+    .rcard__title {
+      font-family: var(--ff-display); font-size: 1.2rem; font-weight: 600;
+      color: var(--blue-deep); margin-bottom: .4rem;
+    }
+    .rcard__text { font-size: .875rem; color: var(--ink-mid); line-height: 1.7; }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
+    .tag {
+      font-family: var(--ff-mono); font-size: .68rem; font-weight: 500;
+      padding: .22rem .6rem; border-radius: 4px; letter-spacing: .04em;
+    }
+    .tag-b { background: rgba(66,153,225,.12); color: var(--blue-mid); }
+    .tag-g { background: rgba(183,121,31,.1); color: var(--gold); }
+
+    /* Publications */
+    .pub { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    .pub:last-child { border-bottom: none; }
+    .pub__venue {
+      font-family: var(--ff-mono); font-size: .72rem; font-weight: 500;
+      color: var(--blue-bright); letter-spacing: .06em;
+      background: rgba(66,153,225,.1); border-radius: 4px;
+      padding: .2rem .5rem; display: inline-block; margin-bottom: .6rem;
+    }
+    .pub__title {
+      font-family: var(--ff-display); font-size: 1.2rem; font-weight: 600;
+      color: var(--blue-deep); line-height: 1.35; margin-bottom: .4rem;
+    }
+    .pub__title a { color: inherit; text-decoration: none; }
+    .pub__title a:hover { color: var(--blue-mid); }
+    .pub__authors { font-size: .875rem; color: var(--ink-light); margin-bottom: .3rem; }
+    .pub__authors strong { color: var(--blue-deep); font-weight: 600; }
+    .pub__links { display: flex; gap: .5rem; margin-top: .6rem; flex-wrap: wrap; }
+    .pub__link {
+      font-family: var(--ff-mono); font-size: .7rem; font-weight: 500;
+      padding: .22rem .65rem; border: 1px solid var(--border);
+      border-radius: 4px; color: var(--ink-mid); text-decoration: none;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .pub__link:hover { background: var(--blue-deep); color: #fff; border-color: var(--blue-deep); }
+
+    /* Timeline */
+    .timeline { padding-left: 1.25rem; border-left: 2px solid var(--border); }
+    .titem { position: relative; padding: 0 0 2rem 1.75rem; }
+    .titem::before {
+      content: ''; position: absolute;
+      left: -1.45rem; top: 6px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--blue-bright);
+      box-shadow: 0 0 0 3px rgba(66,153,225,.2);
+    }
+    .titem__period {
+      font-family: var(--ff-mono); font-size: .72rem;
+      color: var(--blue-bright); letter-spacing: .05em; margin-bottom: .3rem;
+    }
+    .titem__role {
+      font-family: var(--ff-display); font-size: 1.3rem; font-weight: 600;
+      color: var(--blue-deep); margin-bottom: .15rem;
+    }
+    .titem__place {
+      font-size: .9rem; color: var(--ink-mid); font-weight: 500;
+      margin-bottom: .5rem;
+    }
+    .titem__place a { color: var(--blue-bright); text-decoration: none; }
+    .titem__desc { font-size: .875rem; color: var(--ink-light); line-height: 1.75; }
+
+    /* Links panel */
+    .links-panel { display: flex; flex-direction: column; gap: .65rem; }
+    .llink {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .85rem 1.1rem;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; text-decoration: none; color: var(--ink);
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+    }
+    .llink:hover {
+      border-color: var(--blue-bright);
+      box-shadow: 0 4px 16px rgba(17,24,39,.07);
+      transform: translateX(4px);
+    }
+    .llink__icon { font-size: 1.1rem; flex-shrink: 0; width: 28px; text-align: center; }
+    .llink__text { flex: 1; }
+    .llink__text strong { display: block; font-size: .9rem; font-weight: 600; color: var(--blue-deep); }
+    .llink__text span { font-size: .78rem; color: var(--ink-light); font-family: var(--ff-mono); }
+    .llink__arrow { color: var(--ink-light); font-size: .85rem; }
+
+    /* Footer */
+    footer {
+      background: #0D1B2E; color: rgba(255,255,255,.5);
+      text-align: center; padding: 2rem;
+      font-size: .82rem;
+    }
+    footer a { color: rgba(255,255,255,.65); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .hero__inner { grid-template-columns: 1fr; }
+      .hero__photo { width: 160px; margin: 0 auto; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .nav__links { gap: 1rem; }
+      .nav__links a { font-size: .78rem; }
+    }
+    @media (max-width: 480px) {
+      .nav__links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    Full profile &amp; details at
+    <a href="https://aqdus01.github.io/" target="_blank" rel="noopener">aqdus01.github.io →</a>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#">M. Aqdus <span>Ilyas</span></a>
+      <ul class="nav__links">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div>
+        <div class="hero__tag">
+          <span class="hero__tag-dot"></span>
+          Postdoctoral Researcher · DTU Compute
+        </div>
+        <h1 class="hero__name">Chaudhary Muhammad<br>Aqdus Ilyas</h1>
+        <p class="hero__role">Eye-Tracking · Cognitive Neuroscience · Affective Computing · HRI</p>
+        <p class="hero__bio">
+          Postdoctoral Researcher at the
+          <a href="https://www.compute.dtu.dk/">Department of Applied Mathematics and Computer Science</a>,
+          Technical University of Denmark (DTU), working on the
+          <a href="https://datascience.novonordiskfonden.dk/projects/reading-the-reader/"><em>Reading the Reader</em></a>
+          project (Novo Nordisk Foundation), with
+          <a href="https://people.compute.dtu.dk/pgba/">Assoc. Prof. Per Bækgaard</a>.
+          Previously Postdoctoral Researcher at the
+          <a href="https://cambridge-afar.github.io/">AFAR Lab, University of Cambridge</a>.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="https://aqdus01.github.io/" target="_blank" rel="noopener">Full Profile →</a>
+          <a class="btn btn-outline" href="mailto:cmuai@dtu.dk">cmuai@dtu.dk</a>
+        </div>
+      </div>
+      <div class="hero__photo">
+        <img src="https://aqdus01.github.io/images/Aqdus_pic.png" alt="Muhammad Aqdus Ilyas" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section class="section" id="research">
+    <div class="inner">
+      <div class="sec-label">Current Work</div>
+      <h2 class="sec-title">Research Focus</h2>
+      <div class="grid-2">
+
+        <div class="rcard">
+          <div class="rcard__icon">👁️</div>
+          <div class="rcard__title">Eye-Tracking & Pupillometry</div>
+          <p class="rcard__text">Tobii eye-trackers, Task-Evoked Pupillary Responses (TEPR), fixation dynamics, and full preprocessing pipelines for reading research.</p>
+          <div class="tags">
+            <span class="tag tag-b">TEPR</span><span class="tag tag-b">Tobii</span><span class="tag tag-g">GCA</span>
+          </div>
+        </div>
+
+        <div class="rcard">
+          <div class="rcard__icon">🧠</div>
+          <div class="rcard__title">TVA Parameter Estimation</div>
+          <p class="rcard__text">Bundesen's Theory of Visual Attention (TVA) to model visual cognition during reading; per-participant Bayesian MCMC estimation in PyMC.</p>
+          <div class="tags">
+            <span class="tag tag-b">TVA</span><span class="tag tag-b">PyMC</span><span class="tag tag-g">Bayesian</span>
+          </div>
+        </div>
+
+        <div class="rcard">
+          <div class="rcard__icon">🔤</div>
+          <div class="rcard__title">Font Legibility & Psychophysics</div>
+          <p class="rcard__text">How font families and styles modulate reading performance through word superiority effects and Bayesian posterior distributions.</p>
+          <div class="tags">
+            <span class="tag tag-b">Typography</span><span class="tag tag-g">Psychophysics</span>
+          </div>
+        </div>
+
+        <div class="rcard">
+          <div class="rcard__icon">🤖</div>
+          <div class="rcard__title">Affective Computing & HRI</div>
+          <p class="rcard__text">Facial emotion recognition for socially intelligent robots; dimensional valence/arousal modelling for workplace wellbeing (WorkingAge, Cambridge).</p>
+          <div class="tags">
+            <span class="tag tag-b">FER</span><span class="tag tag-g">HRI</span><span class="tag tag-b">Affective AI</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="section section--alt" id="publications">
+    <div class="inner">
+      <div class="sec-label">Scholarship</div>
+      <h2 class="sec-title">Selected Publications</h2>
+
+      <div class="pub">
+        <span class="pub__venue">ACM ETRA 2025</span>
+        <div class="pub__title">
+          <a href="https://doi.org/10.1145/3715669.3725897" target="_blank" rel="noopener">
+            CtxRead: Context Preservation Through Eye Tracking — Adaptive Reading Application Design for an Optimal Reading Experience
+          </a>
+        </div>
+        <p class="pub__authors">Jensen, H.E., <strong>Ilyas, C.M.A.</strong>, Tashk, A., Cooreman, B., Beier, S. &amp; Bækgaard, P.</p>
+        <div class="pub__links">
+          <a class="pub__link" href="https://doi.org/10.1145/3715669.3725897" target="_blank" rel="noopener">DOI</a>
+          <a class="pub__link" href="https://orbit.dtu.dk/files/406853513/3715669.3725897.pdf" target="_blank" rel="noopener">PDF</a>
+          <a class="pub__link" href="https://doi.org/10.11583/DTU.28683917.v1" target="_blank" rel="noopener">Dataset</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <span class="pub__venue">ACM ETRA 2025</span>
+        <div class="pub__title">
+          <a href="https://doi.org/10.1145/3715669.3726846" target="_blank" rel="noopener">
+            RtR-AI: Reading the Reader's Mind through Eye Tracking — Can AI Generated Texts Match Human Authors?
+          </a>
+        </div>
+        <p class="pub__authors"><strong>Ilyas, C.M.A.</strong>, Noor, S.-E., Tashk, A., Cooreman, B., Beier, S. &amp; Bækgaard, P.</p>
+        <div class="pub__links">
+          <a class="pub__link" href="https://doi.org/10.1145/3715669.3726846" target="_blank" rel="noopener">DOI</a>
+          <a class="pub__link" href="https://orbit.dtu.dk/files/406853299/3715669.3726846.pdf" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <span class="pub__venue">IEEE ICCCMLA 2025</span>
+        <div class="pub__title">
+          <a href="https://orbit.dtu.dk/en/publications/native-language-identification-from-gaze-logistic-regression-vs-b/" target="_blank" rel="noopener">
+            NLIR-BERT: Native Language Identification from Gaze — Logistic Regression vs. BERT on MECO-L2
+          </a>
+        </div>
+        <p class="pub__authors">Tashk, A., <strong>Ilyas, C.M.A.</strong>, Cooreman, B., Beier, S. &amp; Bækgaard, P.</p>
+        <div class="pub__links">
+          <a class="pub__link" href="https://orbit.dtu.dk/files/420980447/2025353639.pdf" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+
+      <p style="margin-top:1.5rem;font-size:.875rem;color:var(--ink-light);">
+        Full list with abstracts →
+        <a href="https://aqdus01.github.io/publications/" target="_blank" rel="noopener" style="color:var(--blue-bright);text-decoration:none;">aqdus01.github.io/publications/</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="inner">
+      <div class="sec-label">Career</div>
+      <h2 class="sec-title">Experience &amp; Education</h2>
+      <div class="timeline">
+
+        <div class="titem">
+          <div class="titem__period">2023 – Present</div>
+          <div class="titem__role">Postdoctoral Researcher</div>
+          <div class="titem__place">
+            <a href="https://www.compute.dtu.dk/" target="_blank" rel="noopener">DTU Compute</a>, Technical University of Denmark · Copenhagen
+          </div>
+          <p class="titem__desc">Reading the Reader project (Novo Nordisk Foundation, NF22OC0076877). Eye-tracking, Bayesian modelling, and adaptive AI reading interfaces.</p>
+        </div>
+
+        <div class="titem">
+          <div class="titem__period">2021 – 2023</div>
+          <div class="titem__role">Postdoctoral Researcher</div>
+          <div class="titem__place">
+            <a href="https://cambridge-afar.github.io/" target="_blank" rel="noopener">AFAR Lab, University of Cambridge</a> · UK
+          </div>
+          <p class="titem__desc">WorkingAge project (EU Horizon 2020, grant 826232). Affective computing and facial analysis for workplace wellbeing.</p>
+        </div>
+
+        <div class="titem">
+          <div class="titem__period">2017 – 2021</div>
+          <div class="titem__role">PhD in Computer Science</div>
+          <div class="titem__place">
+            <a href="https://www.en.aau.dk/" target="_blank" rel="noopener">Aalborg University</a> · Denmark
+          </div>
+          <p class="titem__desc">Facial Emotion Recognition for Citizens with TBI for Therapeutic Robot Interaction. VAP &amp; HRI Labs.</p>
+        </div>
+
+        <div class="titem">
+          <div class="titem__period">2015 – 2016</div>
+          <div class="titem__role">MSc · Electrical &amp; Electronics Engineering</div>
+          <div class="titem__place">
+            <a href="https://www.coventry.ac.uk/" target="_blank" rel="noopener">Coventry University</a> · UK
+          </div>
+          <p class="titem__desc">Global Leadership Certificate (GLC).</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Links -->
+  <section class="section section--alt" id="contact">
+    <div class="inner">
+      <div class="sec-label">Connect</div>
+      <h2 class="sec-title">Contact &amp; Profiles</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+
+        <div>
+          <p style="font-size:.9rem;color:var(--ink-mid);margin-bottom:1.25rem;">
+            <strong style="display:block;color:var(--blue-deep);margin-bottom:.25rem;">Email</strong>
+            <a href="mailto:cmuai@dtu.dk" style="color:var(--blue-bright);text-decoration:none;">cmuai@dtu.dk</a>
+          </p>
+          <p style="font-size:.9rem;color:var(--ink-mid);margin-bottom:1.25rem;">
+            <strong style="display:block;color:var(--blue-deep);margin-bottom:.25rem;">Office</strong>
+            DTU Compute · Cognitive Systems Section<br>
+            Richard Petersens Plads<br>
+            2800 Kgs. Lyngby, Denmark
+          </p>
+          <p style="font-size:.9rem;color:var(--ink-mid);">
+            <strong style="display:block;color:var(--blue-deep);margin-bottom:.25rem;">Teaching</strong>
+            <a href="https://aqdus01.github.io/teaching-supervision/" style="color:var(--blue-bright);text-decoration:none;">36 supervised projects →</a>
+          </p>
+        </div>
+
+        <div class="links-panel">
+          <a class="llink" href="https://aqdus01.github.io/" target="_blank" rel="noopener">
+            <span class="llink__icon">🌐</span>
+            <span class="llink__text">
+              <strong>Personal Website</strong>
+              <span>aqdus01.github.io</span>
+            </span>
+            <span class="llink__arrow">→</span>
+          </a>
+          <a class="llink" href="https://scholar.google.com/citations?user=5yQCd7cAAAAJ&hl=en" target="_blank" rel="noopener">
+            <span class="llink__icon">🎓</span>
+            <span class="llink__text">
+              <strong>Google Scholar</strong>
+              <span>Citations &amp; publications</span>
+            </span>
+            <span class="llink__arrow">→</span>
+          </a>
+          <a class="llink" href="https://orcid.org/0000-0002-0766-3531" target="_blank" rel="noopener">
+            <span class="llink__icon">🔬</span>
+            <span class="llink__text">
+              <strong>ORCID</strong>
+              <span>0000-0002-0766-3531</span>
+            </span>
+            <span class="llink__arrow">→</span>
+          </a>
+          <a class="llink" href="https://orbit.dtu.dk/en/persons/chaudhary-muhammad-aqdus-ilyas/" target="_blank" rel="noopener">
+            <span class="llink__icon">📚</span>
+            <span class="llink__text">
+              <strong>DTU Research Database</strong>
+              <span>orbit.dtu.dk</span>
+            </span>
+            <span class="llink__arrow">→</span>
+          </a>
+          <a class="llink" href="https://github.com/Aqdus01" target="_blank" rel="noopener">
+            <span class="llink__icon">⌨️</span>
+            <span class="llink__text">
+              <strong>GitHub</strong>
+              <span>Aqdus01</span>
+            </span>
+            <span class="llink__arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      © 2026 Chaudhary Muhammad Aqdus Ilyas ·
+      <a href="https://www.compute.dtu.dk/">DTU Compute</a> ·
+      <a href="mailto:cmuai@dtu.dk">cmuai@dtu.dk</a>
+    </p>
+    <p style="margin-top:.4rem;font-size:.75rem;opacity:.7;">
+      Full profile at
+      <a href="https://aqdus01.github.io/">aqdus01.github.io</a>
+    </p>
+  </footer>
+
+</body>
+</html>
