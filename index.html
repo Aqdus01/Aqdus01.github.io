@@ -1140,105 +1140,180 @@
         <div class="section-label">Current Work</div>
         <h2 class="section-title">Research Focus</h2>
         <p class="section-sub">
-          Within the <strong>Reading the Reader (RtR)</strong> project, I develop
-          computational methods that combine eye-tracking, pupillometry, and Bayesian
-          modelling to understand and adapt to individual reading patterns.
+          My research spans <strong>cognitive science, affective computing, multimodal signal processing,
+          and human-centred AI</strong> — developing computational methods that place human perception,
+          attention, and emotion at the centre of intelligent system design.
         </p>
       </div>
 
       <div class="research-grid">
 
+        <!-- 1 -->
         <div class="rcard sr">
           <div class="rcard__icon">👁️</div>
-          <h3 class="rcard__title">Eye-Tracking & Pupillometry</h3>
+          <h3 class="rcard__title">Eye-Tracking & Visual Attention</h3>
           <p class="rcard__text">
-            Using Tobii eye-trackers to capture gaze patterns, fixation dynamics, and
-            Task-Evoked Pupillary Responses (TEPR). Full preprocessing pipeline including
-            blink detection, Hampel filtering, Gaussian smoothing, and baseline correction.
+            Investigating how visual attention mechanisms operate using advanced eye-tracking
+            technology and computational models based on Bundesen's Theory of Visual Attention (TVA).
+            Leveraging Tobii eye-trackers to capture gaze trajectories, fixation dynamics, and
+            Task-Evoked Pupillary Responses (TEPR) — then linking these signals to higher-level
+            cognitive processes such as reading fluency, perceptual load, and attentional capacity.
           </p>
           <div class="rcard__tags">
+            <span class="tag tag--blue">Gaze Analysis</span>
             <span class="tag tag--blue">TEPR</span>
-            <span class="tag tag--blue">Tobii</span>
-            <span class="tag tag--gold">Pupil Dilation</span>
-            <span class="tag tag--slate">GCA</span>
+            <span class="tag tag--gold">Tobii</span>
+            <span class="tag tag--gold">Fixation</span>
+            <span class="tag tag--slate">Visual Attention</span>
           </div>
         </div>
 
+        <!-- 2 -->
         <div class="rcard sr">
-          <div class="rcard__icon">🧠</div>
-          <h3 class="rcard__title">TVA Parameter Estimation</h3>
+          <div class="rcard__icon">🧮</div>
+          <h3 class="rcard__title">Cognitive Modelling: TVA, Psychophysics & Bayesian Inference</h3>
           <p class="rcard__text">
-            Applying Bundesen's Theory of Visual Attention (TVA) to model visual cognition
-            during reading. Per-participant estimation of K, C, and t₀ across font conditions
-            using Bayesian MCMC in PyMC.
+            Unifying Bundesen's TVA with Bayesian hierarchical modelling to quantify individual
+            differences in visual processing. Per-participant estimation of attentional parameters
+            (visual processing speed <em>C</em>, storage capacity <em>K</em>, threshold <em>t₀</em>)
+            using MCMC in PyMC. Psychophysical experiments examine how typography, font legibility,
+            and stimulus properties modulate perception — with posterior difference distributions,
+            Growth Curve Analysis (GCA), and LOO-CV for robust inference.
           </p>
           <div class="rcard__tags">
             <span class="tag tag--blue">TVA</span>
-            <span class="tag tag--blue">PyMC</span>
-            <span class="tag tag--gold">MCMC</span>
-            <span class="tag tag--slate">Bayesian</span>
+            <span class="tag tag--blue">PyMC · MCMC</span>
+            <span class="tag tag--gold">Psychophysics</span>
+            <span class="tag tag--gold">GCA</span>
+            <span class="tag tag--slate">Hierarchical Bayes</span>
+            <span class="tag tag--slate">LOO-CV</span>
           </div>
         </div>
 
+        <!-- 3 -->
         <div class="rcard sr">
-          <div class="rcard__icon">🔤</div>
-          <h3 class="rcard__title">Font Legibility & Psychophysics</h3>
+          <div class="rcard__icon">📡</div>
+          <h3 class="rcard__title">Multimodal Signal Processing</h3>
           <p class="rcard__text">
-            Investigating how font families (Cambria, Roboto, Garamond) and styles
-            (regular vs. italic) modulate reading performance through word superiority
-            effects and Bayesian posterior difference distributions.
+            Designing signal processing pipelines that fuse heterogeneous physiological streams —
+            eye-tracking, pupillometry, EEG, and facial action units — into unified representations
+            of cognitive and affective state. Research covers time-series alignment, artifact
+            rejection, feature engineering, and the development of robust multimodal models for
+            real-world sensing contexts including reading, workplace monitoring, and HRI.
+            Central theme of the <a href="https://msparc.compute.dtu.dk/" target="_blank" rel="noopener" style="color:var(--blue-bright);">MSPARC workshop</a> at IEEE ICASSP 2026.
           </p>
           <div class="rcard__tags">
-            <span class="tag tag--blue">Typography</span>
-            <span class="tag tag--gold">Legibility</span>
-            <span class="tag tag--slate">Psychophysics</span>
+            <span class="tag tag--blue">Signal Fusion</span>
+            <span class="tag tag--blue">EEG · Pupillometry</span>
+            <span class="tag tag--gold">Feature Engineering</span>
+            <span class="tag tag--slate">Time-Series</span>
+            <span class="tag tag--slate">ICASSP 2026</span>
           </div>
         </div>
 
-        <div class="rcard sr">
-          <div class="rcard__icon">📈</div>
-          <h3 class="rcard__title">Bayesian Hierarchical Models</h3>
-          <p class="rcard__text">
-            Growth Curve Analysis (GCA) using orthogonal polynomials for temporal pupil data,
-            hierarchical models for Peak Pupil Dilation curves. LOO-CV diagnostics and
-            model identifiability across font and reading conditions.
-          </p>
-          <div class="rcard__tags">
-            <span class="tag tag--blue">PyMC</span>
-            <span class="tag tag--blue">LOO-CV</span>
-            <span class="tag tag--gold">Hierarchical</span>
-            <span class="tag tag--slate">Posterior</span>
-          </div>
-        </div>
-
+        <!-- 4 -->
         <div class="rcard sr">
           <div class="rcard__icon">🤖</div>
-          <h3 class="rcard__title">Affective Computing & HRI</h3>
+          <h3 class="rcard__title">Affective Computing & Human-Robot Interaction</h3>
           <p class="rcard__text">
-            Facial emotion recognition for socially intelligent robotic systems,
-            particularly for citizens with Traumatic Brain Injury (TBI).
-            Previously contributed to the EU Horizon 2020 WorkingAge project at
-            Cambridge AFAR Lab.
+            Building emotionally intelligent machines that can perceive, interpret, and respond
+            to human affective states. Facial expression recognition (FER) with dimensional
+            valence/arousal modelling, adapted for socially assistive robots supporting citizens
+            with Traumatic Brain Injury (TBI). Includes work on spontaneous affect in naturalistic
+            environments (EU Horizon 2020 WorkingAge project, Cambridge AFAR Lab), where systems
+            must be robust to unconstrained lighting, occlusion, and real-world variability.
           </p>
           <div class="rcard__tags">
             <span class="tag tag--blue">FER</span>
+            <span class="tag tag--blue">Valence/Arousal</span>
             <span class="tag tag--gold">HRI</span>
+            <span class="tag tag--gold">TBI</span>
             <span class="tag tag--slate">Affective AI</span>
+            <span class="tag tag--slate">WorkingAge</span>
           </div>
         </div>
 
+        <!-- 5 -->
         <div class="rcard sr">
-          <div class="rcard__icon">🌐</div>
-          <h3 class="rcard__title">NLP & Gaze-Based ML</h3>
+          <div class="rcard__icon">🖥️</div>
+          <h3 class="rcard__title">Human-Machine Interaction & Adaptive Interfaces</h3>
           <p class="rcard__text">
-            Applying BERT-based classifiers to gaze data for native language identification
-            from reading patterns (NLIR). Monte Carlo simulation for robust small-sample
-            evaluation on the MECO-L2 multilingual corpus.
+            Studying how humans interact with intelligent systems — and using that understanding
+            to build interfaces that adapt in real time to the user's cognitive and emotional
+            state. Research spans gaze-contingent reading aids, attention-aware document
+            rendering, and closed-loop interfaces that leverage eye-tracking and pupillometry
+            to reduce cognitive load and personalise content presentation. Bridges HCI
+            methodology with physiological computing and AI-driven adaptation.
           </p>
           <div class="rcard__tags">
+            <span class="tag tag--blue">Gaze-Contingent UI</span>
+            <span class="tag tag--blue">Adaptive Systems</span>
+            <span class="tag tag--gold">HCI</span>
+            <span class="tag tag--gold">Cognitive Load</span>
+            <span class="tag tag--slate">Personalisation</span>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="rcard sr">
+          <div class="rcard__icon">🧬</div>
+          <h3 class="rcard__title">Deep Learning & Computer Vision</h3>
+          <p class="rcard__text">
+            Applying deep neural architectures to perception and cognition problems: convolutional
+            networks and transformers for facial action unit detection, expression recognition,
+            and affect estimation from video streams. Research emphasises domain generalisation,
+            transfer learning across affective datasets, and the design of lightweight models
+            suitable for real-time deployment in embedded and robotic systems. Also encompasses
+            BERT-based sequence models applied to gaze reading data for language identification.
+          </p>
+          <div class="rcard__tags">
+            <span class="tag tag--blue">CNNs · Transformers</span>
             <span class="tag tag--blue">BERT</span>
-            <span class="tag tag--gold">NLIR</span>
-            <span class="tag tag--slate">MECO-L2</span>
+            <span class="tag tag--gold">Transfer Learning</span>
+            <span class="tag tag--gold">Action Units</span>
+            <span class="tag tag--slate">Real-Time CV</span>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="rcard sr">
+          <div class="rcard__icon">🌱</div>
+          <h3 class="rcard__title">Human-Centred AI</h3>
+          <p class="rcard__text">
+            Advocating for AI systems designed with human needs, values, and diversity at their
+            core. This thread runs through all my work — from building models that explain their
+            inferences in terms of measurable cognitive parameters, to designing experiments with
+            genuine ecological validity, to ensuring assistive technologies serve populations
+            with neurological and cognitive differences. Engages with transparency, fairness,
+            and the responsible deployment of AI in health, education, and workplace settings.
+          </p>
+          <div class="rcard__tags">
+            <span class="tag tag--blue">Explainable AI</span>
+            <span class="tag tag--blue">Responsible AI</span>
+            <span class="tag tag--gold">Accessibility</span>
+            <span class="tag tag--gold">Fairness</span>
+            <span class="tag tag--slate">AI Ethics</span>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="rcard sr">
+          <div class="rcard__icon">🌐</div>
+          <h3 class="rcard__title">NLP & Gaze-Based Language Modelling</h3>
+          <p class="rcard__text">
+            Combining natural language processing with gaze behavioural data to study reading
+            and language processing across populations. BERT-based classifiers applied to fixation
+            sequences for native language identification from reading patterns (NLIR-BERT), evaluated
+            on the MECO-L2 multilingual corpus spanning 13 languages. Explores how gaze reflects
+            lexical access, syntactic processing, and L2 reading proficiency — with Monte Carlo
+            simulation for robust small-sample statistical inference.
+          </p>
+          <div class="rcard__tags">
+            <span class="tag tag--blue">BERT · NLP</span>
+            <span class="tag tag--blue">NLIR</span>
+            <span class="tag tag--gold">MECO-L2</span>
+            <span class="tag tag--gold">Multilingual</span>
+            <span class="tag tag--slate">Reading Science</span>
           </div>
         </div>
 
