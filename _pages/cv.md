@@ -67,9 +67,9 @@ Science communication written during my PostDoc at Cambridge AFAR Lab, published
 
 | Year | Award |
 |------|-------|
-| Sep 2020 | International Networking Innovation Fund, Denmark — **€30,000** *(Applied in collaboration)* |
-| Nov 2018 | Research Stay Abroad Grant — **DKK 25,000** |
-| Feb 2018 | Otto Mønsted Conference Grant — **DKK 10,000** |
+| Sep 2020 | International Networking Innovation Fund, Denmark *(Applied in collaboration)* |
+| Nov 2018 | Research Stay Abroad Grant |
+| Feb 2018 | Otto Mønsted Conference Grant |
 | 2018–2020 | Board Member, PhD Network Association, Aalborg University (PAU) |
 | Jan 2016 | Global Leadership Certificate (GLC), Coventry University |
 | Aug 2015 | Travel Grant for Industry Visits — Airbus & Volkswagen, Germany |
